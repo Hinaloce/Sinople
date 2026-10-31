@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" viewBox="0 0 100 100" width="400" height="400" data-meuble="palme" data-nom="Palme" data-categorie="vegetaux" data-singulier="palme" data-pluriel="palmes" data-genre="f" data-ordre="45">
+  <!-- Calques : corps (émail du meuble), langue, armes (griffes, serres, cornes…), details (traits intérieurs). Les couleurs de ce fichier sont indicatives : l'application les remplace. -->
+  <g id="corps" inkscape:label="corps" inkscape:groupmode="layer">
+    <path d="M14 92 C34 76 58 46 84 8" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#1d1b1c" stroke-width="3"/>
+    <path d="M32.9 71Q32.3 62.1 26.9 55Q27.4 63.9 32.9 71Z" fill="#1d1b1c"/>
+    <path d="M32.9 71Q40.5 74.6 48.9 73Q41.2 69.4 32.9 71Z" fill="#1d1b1c"/>
+    <path d="M37.7 65.5Q37.4 56.9 32.3 49.9Q32.5 58.6 37.7 65.5Z" fill="#1d1b1c"/>
+    <path d="M37.7 65.5Q45.1 69 53.1 67.3Q45.7 63.9 37.7 65.5Z" fill="#1d1b1c"/>
+    <path d="M42.4 60.1Q42.5 51.7 37.6 44.9Q37.5 53.3 42.4 60.1Z" fill="#1d1b1c"/>
+    <path d="M42.4 60.1Q49.5 63.5 57.2 61.7Q50.1 58.3 42.4 60.1Z" fill="#1d1b1c"/>
+    <path d="M47.1 54.6Q47.5 46.5 42.9 39.8Q42.5 47.9 47.1 54.6Z" fill="#1d1b1c"/>
+    <path d="M47.1 54.6Q53.9 57.9 61.3 56Q54.4 52.7 47.1 54.6Z" fill="#1d1b1c"/>
+    <path d="M51.7 49.2Q52.4 41.3 48.1 34.8Q47.4 42.6 51.7 49.2Z" fill="#1d1b1c"/>
+    <path d="M51.7 49.2Q58.3 52.3 65.3 50.4Q58.7 47.2 51.7 49.2Z" fill="#1d1b1c"/>
+    <path d="M56.2 43.7Q57.3 36.2 53.2 29.7Q52.2 37.2 56.2 43.7Z" fill="#1d1b1c"/>
+    <path d="M56.2 43.7Q62.5 46.8 69.2 44.7Q62.9 41.6 56.2 43.7Z" fill="#1d1b1c"/>
+    <path d="M60.7 38.2Q62 31 58.3 24.6Q56.9 31.9 60.7 38.2Z" fill="#1d1b1c"/>
+    <path d="M60.7 38.2Q66.7 41.2 73.1 39Q67 36 60.7 38.2Z" fill="#1d1b1c"/>
+    <path d="M65.1 32.8Q66.7 25.8 63.3 19.6Q61.6 26.5 65.1 32.8Z" fill="#1d1b1c"/>
+    <path d="M65.1 32.8Q70.8 35.7 76.9 33.4Q71.1 30.5 65.1 32.8Z" fill="#1d1b1c"/>
+    <path d="M69.4 27.3Q71.4 20.7 68.2 14.5Q66.2 21.2 69.4 27.3Z" fill="#1d1b1c"/>
+    <path d="M69.4 27.3Q74.9 30.1 80.6 27.7Q75.1 24.9 69.4 27.3Z" fill="#1d1b1c"/>
+    <path d="M73.6 21.9Q75.9 15.5 73 9.5Q70.7 15.8 73.6 21.9Z" fill="#1d1b1c"/>
+    <path d="M73.6 21.9Q78.9 24.6 84.2 22.1Q79 19.4 73.6 21.9Z" fill="#1d1b1c"/>
+    <path d="M77.9 16.4Q80.5 10.4 77.9 4.4Q75.3 10.4 77.9 16.4Z" fill="#1d1b1c"/>
+    <path d="M77.9 16.4Q82.9 19 87.9 16.4Q82.9 13.8 77.9 16.4Z" fill="#1d1b1c"/>
+    <path d="M82 10.9Q84.9 5.3 82.6 -0.7Q79.7 5 82 10.9Z" fill="#1d1b1c"/>
+    <path d="M82 10.9Q86.8 13.4 91.4 10.7Q86.7 8.2 82 10.9Z" fill="#1d1b1c"/>
+  </g>
+</svg>

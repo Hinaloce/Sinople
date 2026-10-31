@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     viewBox="51.7 51.7 96.6 96.6" width="400" height="400"
+     data-meuble="fusee"
+     data-nom="Fusée"
+     data-categorie="figures"
+     data-singulier="fusée"
+     data-pluriel="fusées"
+     data-genre="f"
+     data-ordre="242"
+     data-encre="oui"
+     data-auteur="Azgaar"
+     data-licence="https://creativecommons.org/publicdomain/zero/1.0">
+  <!-- Dessin issu de la collection Armoria (fusil.svg) - auteur : Azgaar - licence : https://creativecommons.org/publicdomain/zero/1.0 -->
+  <g inkscape:label="corps" inkscape:groupmode="layer">
+    <polygon points="100 55 130 100 100 145 70 100"/>
+  </g>
+</svg>

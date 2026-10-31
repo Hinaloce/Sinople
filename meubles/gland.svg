@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" viewBox="0 0 100 100" width="400" height="400" data-meuble="gland" data-nom="Gland" data-categorie="vegetaux" data-singulier="gland" data-pluriel="glands" data-genre="m" data-ordre="46">
+  <!-- Calques : corps (émail du meuble), langue, armes (griffes, serres, cornes…), details (traits intérieurs). Les couleurs de ce fichier sont indicatives : l'application les remplace. -->
+  <g id="corps" inkscape:label="corps" inkscape:groupmode="layer">
+    <path d="M50 8 C63 8 67 24 65 46 L35 46 C33 24 37 8 50 8 Z" fill="#1d1b1c"/>
+    <path d="M31 46 L69 46 C69 62 63 72 50 72 C37 72 31 62 31 46 Z" fill="#1d1b1c"/>
+    <path d="M50 72 C50 80 55 84 48 92" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#1d1b1c" stroke-width="4"/>
+  </g>
+  <g id="details" inkscape:label="details" inkscape:groupmode="layer">
+    <path d="M36 52 L64 52 M36 58 L64 58 M38 64 L62 64 M40 50 L44 70 M48 48 L50 72 M58 48 L56 70" fill="none" stroke="#ffffff" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     viewBox="56.79 56.79 86.42 86.42" width="400" height="400"
+     data-meuble="carreau-jeu"
+     data-nom="Carreau (cartes)"
+     data-categorie="figures"
+     data-singulier="carreau"
+     data-pluriel="carreaux"
+     data-genre="m"
+     data-ordre="248"
+     data-encre="oui"
+     data-auteur="Azgaar"
+     data-licence="https://creativecommons.org/publicdomain/zero/1.0">
+  <!-- Dessin issu de la collection Armoria (carreau.svg) - auteur : Azgaar - licence : https://creativecommons.org/publicdomain/zero/1.0 -->
+  <g inkscape:label="corps" inkscape:groupmode="layer">
+    <path stroke-width=".5" d="M100 59.8C94.4 75.1 86.2 88.6 75 100c11.2 11.4 19.4 24.9 25 40.2 5.6-15.3 13.8-28.8 25-40.2-11.2-11.4-19.4-24.9-25-40.2z"/>
+  </g>
+</svg>

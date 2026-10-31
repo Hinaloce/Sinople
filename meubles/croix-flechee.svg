@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     viewBox="57 57 86 86" width="400" height="400"
+     data-meuble="croix-flechee"
+     data-nom="Croix fléchée"
+     data-categorie="croix"
+     data-singulier="croix fléchée"
+     data-pluriel="croix fléchées"
+     data-genre="f"
+     data-ordre="204"
+     data-encre="oui"
+     data-auteur="Azgaar"
+     data-licence="https://creativecommons.org/publicdomain/zero/1.0">
+  <!-- Dessin issu de la collection Armoria (crossArrowed.svg) - auteur : Azgaar - licence : https://creativecommons.org/publicdomain/zero/1.0 -->
+  <g inkscape:label="corps" inkscape:groupmode="layer">
+    <path d="M100 60L84 76h8v16H76v-8l-16 16 16 16v-8h16v16h-8l16 16 16-16h-8v-16h16v8l16-16-16-16v8h-16V76h8l-16-16z" stroke-width=".5"/>
+  </g>
+</svg>

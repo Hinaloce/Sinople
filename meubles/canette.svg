@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" viewBox="0 0 100 100" width="400" height="400" data-meuble="canette" data-nom="Canette" data-categorie="oiseaux" data-singulier="canette" data-pluriel="canettes" data-genre="f" data-ordre="21">
+  <!-- Calques : corps (émail du meuble), langue, armes (griffes, serres, cornes…), details (traits intérieurs). Les couleurs de ce fichier sont indicatives : l'application les remplace. -->
+  <g id="corps" inkscape:label="corps" inkscape:groupmode="layer">
+    <path d="M18 34 C18 25 27 20 34 23 C38 25 40 29 40 33 C48 31 58 33 66 39 L82 31 L77 43 C77 55 67 63 55 63 L45 63 C35 61 27 53 25 45 C20 43 17 38 18 34 Z" fill="#1d1b1c"/>
+    <path d="M19 31 L8 33 L19 37 Z" fill="#1d1b1c"/>
+    <path d="M44 62 L42 74 L36 76 L48 76 M56 62 L56 74 L52 76 L62 76" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#1d1b1c" stroke-width="2.4"/>
+  </g>
+  <g id="details" inkscape:label="details" inkscape:groupmode="layer">
+    <circle cx="28" cy="29" r="1.6" fill="#ffffff"/>
+    <path d="M44 42 C52 44 60 46 68 46" fill="none" stroke="#ffffff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

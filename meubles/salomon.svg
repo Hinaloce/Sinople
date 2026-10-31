@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" viewBox="0 0 100 100" width="400" height="400" data-meuble="salomon" data-nom="Sceau de Salomon" data-categorie="astres" data-singulier="sceau de Salomon" data-pluriel="sceaux de Salomon" data-genre="m" data-ordre="69">
+  <!-- Calques : corps (émail du meuble), langue, armes (griffes, serres, cornes…), details (traits intérieurs). Les couleurs de ce fichier sont indicatives : l'application les remplace. -->
+  <g id="corps" inkscape:label="corps" inkscape:groupmode="layer">
+    <path d="M50 6 L88 72 L12 72 Z" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#1d1b1c" stroke-width="6"/>
+    <path d="M50 94 L12 28 L88 28 Z" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#1d1b1c" stroke-width="6"/>
+  </g>
+</svg>

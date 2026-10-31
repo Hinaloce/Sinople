@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" viewBox="0 0 100 100" width="400" height="400" data-meuble="nenuphar" data-nom="Feuille de nénuphar" data-categorie="vegetaux" data-singulier="feuille de nénuphar" data-pluriel="feuilles de nénuphar" data-genre="f" data-ordre="50">
+  <!-- Calques : corps (émail du meuble), langue, armes (griffes, serres, cornes…), details (traits intérieurs). Les couleurs de ce fichier sont indicatives : l'application les remplace. -->
+  <g id="corps" inkscape:label="corps" inkscape:groupmode="layer">
+    <path d="M50 30 C46 22 36 14 24 18 C10 24 12 44 22 56 C30 66 42 76 50 90 C58 76 70 66 78 56 C88 44 90 24 76 18 C64 14 54 22 50 30 Z" fill="#1d1b1c"/>
+  </g>
+  <g id="details" inkscape:label="details" inkscape:groupmode="layer">
+    <path d="M50 30 C54 26 50 22 46 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

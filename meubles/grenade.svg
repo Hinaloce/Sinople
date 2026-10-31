@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" viewBox="0 0 100 100" width="400" height="400" data-meuble="grenade" data-nom="Grenade" data-categorie="vegetaux" data-singulier="grenade" data-pluriel="grenades" data-genre="f" data-ordre="52">
+  <!-- Calques : corps (émail du meuble), langue, armes (griffes, serres, cornes…), details (traits intérieurs). Les couleurs de ce fichier sont indicatives : l'application les remplace. -->
+  <g id="corps" inkscape:label="corps" inkscape:groupmode="layer">
+    <path d="M50 62 C50 74 48 82 46 95" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#1d1b1c" stroke-width="4"/>
+    <path d="M48 76Q37.5 64.5 22 66Q32.5 77.5 48 76Z" fill="#1d1b1c"/>
+    <path d="M49 74Q64 77.8 76 68Q61 64.2 49 74Z" fill="#1d1b1c"/>
+    <circle cx="50" cy="38" r="23" fill="#1d1b1c"/>
+    <path d="M43 18 L41 8 L46 13 L50 5 L54 13 L59 8 L57 18 Z" fill="#1d1b1c"/>
+  </g>
+  <g id="details" inkscape:label="details" inkscape:groupmode="layer">
+    <ellipse cx="50" cy="38" rx="9" ry="17" fill="none" stroke="#ffffff" stroke-width="1.4"/>
+    <circle cx="47" cy="28" r="1.5" fill="#ffffff"/>
+    <circle cx="53" cy="31" r="1.5" fill="#ffffff"/>
+    <circle cx="47" cy="34" r="1.5" fill="#ffffff"/>
+    <circle cx="53" cy="37" r="1.5" fill="#ffffff"/>
+    <circle cx="47" cy="40" r="1.5" fill="#ffffff"/>
+    <circle cx="53" cy="43" r="1.5" fill="#ffffff"/>
+    <circle cx="47" cy="46" r="1.5" fill="#ffffff"/>
+    <circle cx="53" cy="49" r="1.5" fill="#ffffff"/>
+  </g>
+</svg>

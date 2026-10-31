@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     viewBox="57 57 86 86" width="400" height="400"
+     data-meuble="croix-latine"
+     data-nom="Croix latine"
+     data-categorie="croix"
+     data-singulier="croix latine"
+     data-pluriel="croix latines"
+     data-genre="f"
+     data-ordre="223"
+     data-encre="oui"
+     data-auteur="Azgaar"
+     data-licence="https://creativecommons.org/publicdomain/zero/1.0">
+  <!-- Dessin issu de la collection Armoria (crossLatin.svg) - auteur : Azgaar - licence : https://creativecommons.org/publicdomain/zero/1.0 -->
+  <g inkscape:label="corps" inkscape:groupmode="layer">
+    <path d="m 95,60 h 10 v 20 h 25 v 10 h -25 v 50 H 95 V 90 H 70 V 80 h 25 z" stroke-width=".5"/>
+  </g>
+</svg>

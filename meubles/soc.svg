@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     viewBox="58.08 58.72 83.34 83.34" width="400" height="400"
+     data-meuble="soc"
+     data-nom="Soc de charrue"
+     data-categorie="objets"
+     data-singulier="soc de charrue"
+     data-pluriel="socs de charrue"
+     data-genre="m"
+     data-ordre="324"
+     data-encre="oui"
+     data-auteur="Madboy74"
+     data-source="https://commons.wikimedia.org/wiki/File:Coa_Illustration_Elements_Tool_Plow.svg"
+     data-licence="https://www.gnu.org/licenses/fdl-1.3.html">
+  <!-- Dessin issu de la collection Armoria (ploughshare.svg) - auteur : Madboy74 - source : https://commons.wikimedia.org/wiki/File:Coa_Illustration_Elements_Tool_Plow.svg - licence : https://www.gnu.org/licenses/fdl-1.3.html -->
+  <g inkscape:label="corps" inkscape:groupmode="layer">
+    <path d="M131.1 61.64c.53 18.36-2.27 44.66-18.31 66.8l-11.4-8.9c-1.41-1.1-3.31-1.27-4.57-.01a3.25 3.25 0 00.74 5.13l-14.47 14.47-14.74-14.73zM86 126.92a3.23 3.23 0 00-4.56 4.57 3.23 3.23 0 004.57-4.57z" stroke-width=".8"/>
+  </g>
+</svg>

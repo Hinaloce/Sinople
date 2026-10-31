@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     viewBox="216 339 168 168" width="400" height="400"
+     data-meuble="trefle"
+     data-nom="Trèfle"
+     data-categorie="vegetaux"
+     data-singulier="trèfle"
+     data-pluriel="trèfles"
+     data-genre="m"
+     data-ordre="49"
+     data-encre="oui"
+     data-source="Blason azur 3 trèfles or.svg (fichier fourni)">
+  <!-- Trèfle repris du fichier « Blason azur 3 trèfles or.svg » ; c'est aussi le trèfle du trait tréflé (js/geometry.js) -->
+  <g inkscape:label="corps" inkscape:groupmode="layer">
+    <path stroke-width="1.2" d="M317.499 415.998s19.25-15.4 19.25-36.75C336.749 366.749 325.653 346 300 346c-25.653 0-36.749 20.758-36.749 33.248 0 21.35 19.25 36.75 19.25 36.75C261.12 399.341 223 410.712 223 444c0 16.666 13.617 35 35 35 25.652 0 36.748-28.004 36.748-28.004S298.006 482.914 279 500h42c-19.006-17.078-15.748-49.004-15.748-49.004S316.348 479 342 479c21.391 0 35-18.342 35-35 0-33.288-38.119-44.659-59.501-28.002Z"/>
+  </g>
+</svg>

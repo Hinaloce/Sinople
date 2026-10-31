@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     viewBox="67.6 67.6 64.8 64.8" width="400" height="400"
+     data-meuble="annelet"
+     data-nom="Annelet"
+     data-categorie="figures"
+     data-singulier="annelet"
+     data-pluriel="annelets"
+     data-genre="m"
+     data-ordre="74"
+     data-encre="oui"
+     data-auteur="Azgaar"
+     data-licence="https://creativecommons.org/publicdomain/zero/1.0">
+  <!-- Dessin issu de la collection Armoria (annulet.svg) - auteur : Azgaar - licence : https://creativecommons.org/publicdomain/zero/1.0 -->
+  <g inkscape:label="corps" inkscape:groupmode="layer">
+    <path d="M70 100c0 16.569 13.431 30 30 30 16.569 0 30-13.431 30-30 0-16.569-13.431-30-30-30-16.569 0-30 13.431-30 30m10 0c0-11.046 8.954-20 20-20s20 8.954 20 20-8.954 20-20 20-20-8.954-20-20"/>
+  </g>
+</svg>

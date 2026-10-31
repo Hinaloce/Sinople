@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" viewBox="0 0 100 100" width="400" height="400" data-meuble="dextrochere" data-nom="Dextrochère" data-categorie="corps" data-singulier="dextrochère" data-pluriel="dextrochères" data-genre="m" data-ordre="35">
+  <!-- Calques : corps (émail du meuble), langue, armes (griffes, serres, cornes…), details (traits intérieurs). Les couleurs de ce fichier sont indicatives : l'application les remplace. -->
+  <g id="corps" inkscape:label="corps" inkscape:groupmode="layer">
+    <path d="M100 42 C88 42 78 44 68 49 C58 54 48 54 38 50 L33 58 C44 64 56 66 70 61 C82 57 90 56 100 56 Z" fill="#1d1b1c"/>
+    <path d="M16 43.2 L8.5 32.6 C7.1 30.5 10 28.5 11.4 30.5 L17.7 39.6 L18.5 39 L9.6 26.3 C8.2 24.2 11.1 22.2 12.5 24.3 L21.4 37 L22.2 36.4 L12.4 22.5 C11 20.4 13.9 18.4 15.3 20.5 L25.1 34.4 L25.9 33.8 L18.1 22.8 C16.7 20.7 19.6 18.7 21 20.8 L31.6 35.9 C30.7 32.9 30.5 30 32.2 28.8 C34.1 28.1 35.1 30.4 35.4 32.6 L36.3 41.8 C36.7 45.8 36.2 48.6 36 50 L38.5 53.6 L31.2 58.8 L28.6 55.1 C25.2 53.8 21.7 51.4 18.8 47.3 Z" fill="#1d1b1c"/>
+  </g>
+  <g id="details" inkscape:label="details" inkscape:groupmode="layer">
+    <path d="M70 47 C67 51 67 56 70 59" fill="none" stroke="#ffffff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     viewBox="57 57 86 86" width="400" height="400"
+     data-meuble="etoile6"
+     data-nom="Étoile à six rais"
+     data-categorie="astres"
+     data-singulier="étoile à six rais"
+     data-pluriel="étoiles à six rais"
+     data-genre="f"
+     data-ordre="64"
+     data-encre="oui"
+     data-auteur="Azgaar"
+     data-licence="https://creativecommons.org/publicdomain/zero/1.0">
+  <!-- Dessin issu de la collection Armoria (mullet6.svg) - auteur : Azgaar - licence : https://creativecommons.org/publicdomain/zero/1.0 -->
+  <g inkscape:label="corps" inkscape:groupmode="layer">
+    <polygon points="100 60 107.64 86.77 134.64 80 115.28 100 134.64 120 107.64 113.23 100 140 92.36 113.23 65.36 120 84.72 100 65.36 80 92.36 86.77"/>
+  </g>
+</svg>

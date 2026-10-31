@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     viewBox="57.16 57.06 85.96 85.96" width="400" height="400"
+     data-meuble="maillet"
+     data-nom="Maillet"
+     data-categorie="objets"
+     data-singulier="maillet"
+     data-pluriel="maillets"
+     data-genre="m"
+     data-ordre="319"
+     data-encre="oui"
+     data-source="http://wappenwiki.org"
+     data-licence="https://creativecommons.org/licenses/by-nc-sa/3.0">
+  <!-- Dessin issu de la collection Armoria (mallet.svg) - source : http://wappenwiki.org - licence : https://creativecommons.org/licenses/by-nc-sa/3.0 -->
+  <g inkscape:label="corps" inkscape:groupmode="layer">
+    <path d="M104.072 111.666V87.927h-7.906v23.74c0 6.06-2.251 17.022-2.251 21.5 0 4.477 2.779 6.851 6.184 6.851 3.425 0 6.184-2.374 6.184-6.851.04-4.497-2.211-15.44-2.211-21.5zm-8.415-49.215c0-1.833 2.192-2.393 4.481-2.393 2.29 0 4.482.54 4.482 2.393l-.744 9.901H96.42Z" stroke-width=".583"/>
+    <path d="M100.119 66.041c-9.08 0-27.105 1.892-26.518 8.318.372 4.111 1.703 17.467 1.703 17.467.763 4.535.215 7.122 5.088 7.122 0 0 13.543-.58 19.746-.58 6.184 0 19.746.58 19.746.58 4.873 0 4.306-2.587 5.089-7.122 0 0 1.33-13.336 1.702-17.467.568-6.427-17.476-8.318-26.556-8.318z" stroke-width=".583"/>
+    <path fill="#000" stroke="none" d="M77.1 71.8c14-4.1 33.1-4 46.7 0-13.5-3.2-32.9-3-46.7 0z" stroke-width="3"/>
+  </g>
+</svg>

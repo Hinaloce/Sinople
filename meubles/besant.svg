@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     viewBox="67.6 67.6 64.8 64.8" width="400" height="400"
+     data-meuble="besant"
+     data-nom="Besant / tourteau"
+     data-categorie="figures"
+     data-singulier="besant"
+     data-pluriel="besants"
+     data-genre="m"
+     data-ordre="73"
+     data-encre="oui"
+     data-auteur="Azgaar"
+     data-licence="https://creativecommons.org/publicdomain/zero/1.0">
+  <!-- Dessin issu de la collection Armoria (roundel.svg) - auteur : Azgaar - licence : https://creativecommons.org/publicdomain/zero/1.0 -->
+  <g inkscape:label="corps" inkscape:groupmode="layer">
+    <circle cx="100" cy="100" r="30"/>
+  </g>
+</svg>

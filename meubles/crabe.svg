@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" viewBox="0 0 100 100" width="400" height="400" data-meuble="crabe" data-nom="Crabe" data-categorie="aquatiques" data-singulier="crabe" data-pluriel="crabes" data-genre="m" data-ordre="27">
+  <!-- Calques : corps (émail du meuble), langue, armes (griffes, serres, cornes…), details (traits intérieurs). Les couleurs de ce fichier sont indicatives : l'application les remplace. -->
+  <g id="corps" inkscape:label="corps" inkscape:groupmode="layer">
+    <path d="M35 42 C27 34 23 26 25 18" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#1d1b1c" stroke-width="4"/>
+    <path d="M25 20 C18 15 16 8 20 3 C22 9 26 11 31 11 C27 15 27 18 26 22 Z" fill="#1d1b1c"/>
+    <path d="M32 54 L18 52 L11 58 M32 58 L19 63 L14 71 M34 62 L23 71 L21 79 M38 66 L31 76 L31 85" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#1d1b1c" stroke-width="2.8"/>
+    <path d="M65 42 C73 34 77 26 75 18" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#1d1b1c" stroke-width="4"/>
+    <path d="M75 20 C82 15 84 8 80 3 C78 9 74 11 69 11 C73 15 73 18 74 22 Z" fill="#1d1b1c"/>
+    <path d="M68 54 L82 52 L89 58 M68 58 L81 63 L86 71 M66 62 L77 71 L79 79 M62 66 L69 76 L69 85" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#1d1b1c" stroke-width="2.8"/>
+    <path d="M30 50 C30 36 70 36 70 50 C70 62 60 68 50 68 C40 68 30 62 30 50 Z" fill="#1d1b1c"/>
+  </g>
+  <g id="details" inkscape:label="details" inkscape:groupmode="layer">
+    <circle cx="44" cy="42" r="1.5" fill="#ffffff"/>
+    <circle cx="56" cy="42" r="1.5" fill="#ffffff"/>
+  </g>
+</svg>

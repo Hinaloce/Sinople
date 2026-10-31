@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" viewBox="0 0 100 100" width="400" height="400" data-meuble="mont6" data-nom="Mont à six coupeaux" data-categorie="astres" data-singulier="mont à six coupeaux" data-pluriel="monts à six coupeaux" data-genre="m" data-ordre="71">
+  <!-- Calques : corps (émail du meuble), langue, armes (griffes, serres, cornes…), details (traits intérieurs). Les couleurs de ce fichier sont indicatives : l'application les remplace. -->
+  <g id="corps" inkscape:label="corps" inkscape:groupmode="layer">
+    <path d="M34 97L34 29.4C34 16 66 16 66 29.4L66 97Z" fill="#1d1b1c"/>
+    <path d="M18 97L18 51.4C18 38 50 38 50 51.4L50 97Z" fill="#1d1b1c"/>
+    <path d="M50 97L50 51.4C50 38 82 38 82 51.4L82 97Z" fill="#1d1b1c"/>
+    <path d="M2 97L2 73.4C2 60 34 60 34 73.4L34 97Z" fill="#1d1b1c"/>
+    <path d="M34 97L34 73.4C34 60 66 60 66 73.4L66 97Z" fill="#1d1b1c"/>
+    <path d="M66 97L66 73.4C66 60 98 60 98 73.4L98 97Z" fill="#1d1b1c"/>
+  </g>
+</svg>

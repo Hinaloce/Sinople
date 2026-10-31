@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     viewBox="57 57 86 86" width="400" height="400"
+     data-meuble="croix-pommetee"
+     data-nom="Croix pommetée"
+     data-categorie="croix"
+     data-singulier="croix pommetée"
+     data-pluriel="croix pommetées"
+     data-genre="f"
+     data-ordre="232"
+     data-encre="oui"
+     data-auteur="Azgaar"
+     data-licence="https://creativecommons.org/publicdomain/zero/1.0">
+  <!-- Dessin issu de la collection Armoria (crossPommy.svg) - auteur : Azgaar - licence : https://creativecommons.org/publicdomain/zero/1.0 -->
+  <g inkscape:label="corps" inkscape:groupmode="layer">
+    <path d="M95.75 104.25h-19.89a8.5 8.5 0 110-8.5h19.89v-19.89a8.5 8.5 0 118.5 0v19.89h19.89a8.5 8.5 0 110 8.5h-19.89v19.89a8.5 8.5 0 11-8.5 0z" stroke-width=".5"/>
+  </g>
+</svg>

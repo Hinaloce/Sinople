@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" viewBox="0 0 100 100" width="400" height="400" data-meuble="tete-aigle" data-nom="Tête d'aigle arrachée" data-categorie="oiseaux" data-singulier="tête d'aigle arrachée" data-pluriel="têtes d'aigle arrachées" data-genre="f" data-ordre="16">
+  <!-- Calques : corps (émail du meuble), langue, armes (griffes, serres, cornes…), details (traits intérieurs). Les couleurs de ce fichier sont indicatives : l'application les remplace. -->
+  <g id="corps" inkscape:label="corps" inkscape:groupmode="layer">
+    <path d="M24 40 C24 30 34 22 46 22 C58 22 68 30 70 42 L76 46 L70 50 L76 56 L68 58 L74 64 L64 64 L66 72 L56 68 L54 78 L48 70 L42 76 L40 66 C36 60 34 54 32 50 L26 52 Z" fill="#1d1b1c"/>
+    <path d="M26 36 C16 34 10 40 10 47 C14 44 18 46 22 49 L30 48 Z" fill="#1d1b1c"/>
+  </g>
+  <g id="details" inkscape:label="details" inkscape:groupmode="layer">
+    <circle cx="36" cy="34" r="2.2" fill="#ffffff"/>
+    <path d="M48 34 L60 38 M48 46 L62 50" fill="none" stroke="#ffffff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

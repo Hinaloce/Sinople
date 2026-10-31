@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     viewBox="0 0 100 100" width="400" height="400"
+     data-meuble="lambel"
+     data-nom="Lambel"
+     data-categorie="figures"
+     data-singulier="lambel"
+     data-pluriel="lambels"
+     data-genre="m"
+     data-article="defini"
+     data-ordre="242"
+     data-variante="cinq"
+     data-variante-nom="Cinq pendants"
+     data-adjectif="à cinq pendants|à cinq pendants">
+  <!-- Dessin original pour l'Atelier d'héraldique : traverse et cinq pendants évasés. -->
+  <g id="corps" inkscape:label="corps" inkscape:groupmode="layer">
+    <path d="M2 30H98V40H2Z" fill="#d1242f"/>
+    <path d="M7 39H17L19 70H5Z" fill="#d1242f"/>
+    <path d="M26 39H36L38 70H24Z" fill="#d1242f"/>
+    <path d="M45 39H55L57 70H43Z" fill="#d1242f"/>
+    <path d="M64 39H74L76 70H62Z" fill="#d1242f"/>
+    <path d="M83 39H93L95 70H81Z" fill="#d1242f"/>
+  </g>
+</svg>

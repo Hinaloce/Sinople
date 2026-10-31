@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     viewBox="57 57 86 86" width="400" height="400"
+     data-meuble="croix-fichee"
+     data-nom="Croix fichée"
+     data-categorie="croix"
+     data-singulier="croix fichée"
+     data-pluriel="croix fichées"
+     data-genre="f"
+     data-ordre="216"
+     data-encre="oui"
+     data-auteur="Azgaar"
+     data-licence="https://creativecommons.org/publicdomain/zero/1.0">
+  <!-- Dessin issu de la collection Armoria (crossFitchy.svg) - auteur : Azgaar - licence : https://creativecommons.org/publicdomain/zero/1.0 -->
+  <g inkscape:label="corps" inkscape:groupmode="layer">
+    <path d="M 92,92 V 70 l 8,-10 8,10 v 22 h 22 l 10,8 -10,8 h -22 v 22 l -8,10 -8,-10 V 108 H 70 l -10,-8 10,-8 z" stroke-width=".5"/>
+  </g>
+</svg>

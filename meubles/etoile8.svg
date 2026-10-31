@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     viewBox="57 57 86 86" width="400" height="400"
+     data-meuble="etoile8"
+     data-nom="Étoile à huit rais"
+     data-categorie="astres"
+     data-singulier="étoile à huit rais"
+     data-pluriel="étoiles à huit rais"
+     data-genre="f"
+     data-ordre="197"
+     data-encre="oui"
+     data-auteur="Azgaar"
+     data-licence="https://creativecommons.org/publicdomain/zero/1.0">
+  <!-- Dessin issu de la collection Armoria (mullet8.svg) - auteur : Azgaar - licence : https://creativecommons.org/publicdomain/zero/1.0 -->
+  <g inkscape:label="corps" inkscape:groupmode="layer">
+    <polygon points="100 60 105.85 85.88 128.28 71.72 114.12 94.15 140 100 114.12 105.85 128.28 128.28 105.85 114.12 100 140 94.15 114.12 71.72 128.28 85.88 105.85 60 100 85.88 94.15 71.72 71.72 94.15 85.88"/>
+  </g>
+</svg>

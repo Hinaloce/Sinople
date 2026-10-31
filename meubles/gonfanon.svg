@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     viewBox="0 0 100 100" width="400" height="400"
+     data-meuble="gonfanon"
+     data-nom="Gonfanon"
+     data-categorie="armes"
+     data-singulier="gonfanon"
+     data-pluriel="gonfanons"
+     data-genre="m"
+     data-article="defini"
+     data-ordre="276"
+     data-armes-nom="Franges"
+     data-armes-terme="frangé">
+  <!-- Dessin original pour l'Atelier d'héraldique : bannière à trois pendants suspendue à trois anneaux ;
+       le calque « armes » porte la frange (« frangé de … »). -->
+  <g id="corps" inkscape:label="corps" inkscape:groupmode="layer">
+    <path fill-rule="evenodd" d="M17 10a5 5 0 1 0 10 0a5 5 0 1 0 -10 0ZM19.6 10a2.4 2.4 0 1 0 4.8 0a2.4 2.4 0 1 0 -4.8 0Z" fill="#d1242f"/>
+    <path fill-rule="evenodd" d="M45 10a5 5 0 1 0 10 0a5 5 0 1 0 -10 0ZM47.6 10a2.4 2.4 0 1 0 4.8 0a2.4 2.4 0 1 0 -4.8 0Z" fill="#d1242f"/>
+    <path fill-rule="evenodd" d="M73 10a5 5 0 1 0 10 0a5 5 0 1 0 -10 0ZM75.6 10a2.4 2.4 0 1 0 4.8 0a2.4 2.4 0 1 0 -4.8 0Z" fill="#d1242f"/>
+    <path d="M8 14H92V77A11 11 0 0 1 70 77V40H61V77A11 11 0 0 1 39 77V40H30V77A11 11 0 0 1 8 77Z" fill="#d1242f"/>
+  </g>
+  <g id="armes" inkscape:label="armes" inkscape:groupmode="layer">
+    <path d="M12 19V77A7 7 0 0 0 26 77V36H43V77A7 7 0 0 0 57 77V36H74V77A7 7 0 0 0 88 77V19" fill="none" stroke="#238a47" stroke-width="3.4" stroke-linecap="round" stroke-dasharray="0.1 4.6"/>
+  </g>
+</svg>

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" viewBox="0 0 100 100" width="400" height="400" data-meuble="alerion" data-nom="Alérion" data-categorie="oiseaux" data-singulier="alérion" data-pluriel="alérions" data-genre="m" data-ordre="14">
+  <!-- Calques : corps (émail du meuble), langue, armes (griffes, serres, cornes…), details (traits intérieurs). Les couleurs de ce fichier sont indicatives : l'application les remplace. -->
+  <g id="corps" inkscape:label="corps" inkscape:groupmode="layer">
+    <path d="M46 40 C38 32 28 22 16 14" fill="none" stroke="#1d1b1c" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M17.4 12.5 C12.2 4.9 4.6 2.4 4 3 C3.4 3.6 6.6 11 14.6 15.5 Z" fill="#1d1b1c"/>
+    <path d="M20.5 16 C10.6 11.2 1.2 12.2 1 13 C0.8 13.8 8.5 19.3 19.5 20 Z" fill="#1d1b1c"/>
+    <path d="M24.7 19.9 C11.3 19.5 0.9 24.2 1 25 C1.1 25.8 12.3 27.8 25.3 24.1 Z" fill="#1d1b1c"/>
+    <path d="M29.2 25 C14.2 28.6 3.7 36.2 4 37 C4.3 37.8 17.2 36.4 30.8 29 Z" fill="#1d1b1c"/>
+    <path d="M33.9 29.2 C19 36.3 9.5 46.3 10 47 C10.5 47.7 23.5 43.3 36.1 32.8 Z" fill="#1d1b1c"/>
+    <path d="M38.6 33.4 C25.6 42.3 18.4 53.4 19 54 C19.6 54.6 31.3 48.6 41.4 36.6 Z" fill="#1d1b1c"/>
+    <path d="M54 40 C62 32 72 22 84 14" fill="none" stroke="#1d1b1c" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M82.6 12.5 C87.8 4.9 95.4 2.4 96 3 C96.6 3.6 93.4 11 85.4 15.5 Z" fill="#1d1b1c"/>
+    <path d="M79.5 16 C89.4 11.2 98.8 12.2 99 13 C99.2 13.8 91.5 19.3 80.5 20 Z" fill="#1d1b1c"/>
+    <path d="M75.3 19.9 C88.7 19.5 99.1 24.2 99 25 C98.9 25.8 87.7 27.8 74.7 24.1 Z" fill="#1d1b1c"/>
+    <path d="M70.8 25 C85.8 28.6 96.3 36.2 96 37 C95.7 37.8 82.8 36.4 69.2 29 Z" fill="#1d1b1c"/>
+    <path d="M66.1 29.2 C81 36.3 90.5 46.3 90 47 C89.5 47.7 76.5 43.3 63.9 32.8 Z" fill="#1d1b1c"/>
+    <path d="M61.4 33.4 C74.4 42.3 81.6 53.4 81 54 C80.4 54.6 68.7 48.6 58.6 36.6 Z" fill="#1d1b1c"/>
+    <path d="M43 36 C45 30 55 30 57 36 L59 56 C59 64 55 68 50 68 C45 68 41 64 41 56 Z" fill="#1d1b1c"/>
+    <path d="M45.8 63.4 C38.7 79.2 38.1 93.7 39 94 C39.9 94.3 47.4 81.8 50.2 64.6 Z" fill="#1d1b1c"/>
+    <path d="M47.8 64 C45.5 82.7 49.1 98 50 98 C50.9 98 54.5 82.7 52.3 64 Z" fill="#1d1b1c"/>
+    <path d="M49.8 64.6 C52.6 81.8 60.1 94.3 61 94 C61.9 93.7 61.3 79.2 54.2 63.4 Z" fill="#1d1b1c"/>
+    <path d="M44 22 C44 16 48 12 53 12 C58 12 60 16 59 22 C58 28 55 32 50 34 L46 34 Z" fill="#1d1b1c"/>
+  </g>
+  <g id="details" inkscape:label="details" inkscape:groupmode="layer">
+    <path d="M50 42 L50 60" fill="none" stroke="#ffffff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M45 47 Q50 52 55 47 M45 53 Q50 58 55 53" fill="none" stroke="#ffffff" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="48" cy="18" r="1.5" fill="#ffffff"/>
+  </g>
+</svg>

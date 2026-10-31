@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     viewBox="62.3 57.3 75.4 75.4" width="400" height="400"
+     data-meuble="triangle"
+     data-nom="Triangle"
+     data-categorie="figures"
+     data-singulier="triangle"
+     data-pluriel="triangles"
+     data-genre="m"
+     data-ordre="245"
+     data-variante="vide"
+     data-variante-nom="Vidé"
+     data-adjectif="vidé|vidés"
+     data-encre="oui"
+     data-auteur="Azgaar"
+     data-licence="https://creativecommons.org/publicdomain/zero/1.0">
+  <!-- Dessin issu de la collection Armoria (trianglePierced.svg) - auteur : Azgaar - licence : https://creativecommons.org/publicdomain/zero/1.0 -->
+  <g inkscape:label="corps" inkscape:groupmode="layer">
+    <path d="M100 60l35 70H65zm0 20l-20 40h40z"/>
+  </g>
+</svg>

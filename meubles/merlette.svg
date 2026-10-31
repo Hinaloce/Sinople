@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" viewBox="0 0 100 100" width="400" height="400" data-meuble="merlette" data-nom="Merlette" data-categorie="oiseaux" data-singulier="merlette" data-pluriel="merlettes" data-genre="f" data-ordre="20">
+  <!-- Calques : corps (émail du meuble), langue, armes (griffes, serres, cornes…), details (traits intérieurs). Les couleurs de ce fichier sont indicatives : l'application les remplace. -->
+  <g id="corps" inkscape:label="corps" inkscape:groupmode="layer">
+    <path d="M18 36 C18 27 27 22 34 25 C38 27 40 31 40 35 C48 33 58 35 66 41 L83 35 L77 45 L89 47 L75 53 C67 61 55 63 45 61 C35 59 27 51 25 45 C20 43 17 40 18 36 Z" fill="#1d1b1c"/>
+  </g>
+  <g id="details" inkscape:label="details" inkscape:groupmode="layer">
+    <circle cx="28" cy="32" r="1.6" fill="#ffffff"/>
+    <path d="M46 44 C54 46 62 48 70 50" fill="none" stroke="#ffffff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

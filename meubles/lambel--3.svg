@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     viewBox="0 0 100 100" width="400" height="400"
+     data-meuble="lambel"
+     data-nom="Lambel"
+     data-categorie="figures"
+     data-singulier="lambel"
+     data-pluriel="lambels"
+     data-genre="m"
+     data-article="defini"
+     data-ordre="242"
+     data-variante="trois"
+     data-variante-nom="Trois pendants"
+     data-adjectif="à trois pendants|à trois pendants"
+     data-defaut="oui">
+  <!-- Dessin original pour l'Atelier d'héraldique : traverse et trois pendants évasés. -->
+  <g id="corps" inkscape:label="corps" inkscape:groupmode="layer">
+    <path d="M2 30H98V40H2Z" fill="#d1242f"/>
+    <path d="M16 39H28L31 70H13Z" fill="#d1242f"/>
+    <path d="M44 39H56L59 70H41Z" fill="#d1242f"/>
+    <path d="M72 39H84L87 70H69Z" fill="#d1242f"/>
+  </g>
+</svg>

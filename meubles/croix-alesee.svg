@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     viewBox="57 57 86 86" width="400" height="400"
+     data-meuble="croix-alesee"
+     data-nom="Croix alésée"
+     data-categorie="croix"
+     data-singulier="croix alésée"
+     data-pluriel="croix alésées"
+     data-genre="f"
+     data-ordre="221"
+     data-encre="oui"
+     data-auteur="Azgaar"
+     data-licence="https://creativecommons.org/publicdomain/zero/1.0">
+  <!-- Dessin issu de la collection Armoria (crossHummetty.svg) - auteur : Azgaar - licence : https://creativecommons.org/publicdomain/zero/1.0 -->
+  <g inkscape:label="corps" inkscape:groupmode="layer">
+    <path d="M90 60h20v30h30v20h-30v30H90v-30H60V90h30z" stroke-width=".5"/>
+  </g>
+</svg>

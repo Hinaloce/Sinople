@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     viewBox="0 0 100 100" width="400" height="400"
+     data-meuble="haie"
+     data-nom="Haie"
+     data-categorie="edifices"
+     data-singulier="haie"
+     data-pluriel="haies"
+     data-genre="f"
+     data-mouvant="flancs"
+     data-ordre="282">
+  <!-- Dessin original pour l'Atelier d'héraldique : palissade de sept pieux reliés par deux traverses. -->
+  <g id="corps" inkscape:label="corps" inkscape:groupmode="layer">
+    <path d="M2 82V34L6.5 26L11 34V82Z" fill="#238a47"/>
+    <path d="M17.5 82V34L22 26L26.5 34V82Z" fill="#238a47"/>
+    <path d="M33 82V34L37.5 26L42 34V82Z" fill="#238a47"/>
+    <path d="M48.5 82V34L53 26L57.5 34V82Z" fill="#238a47"/>
+    <path d="M64 82V34L68.5 26L73 34V82Z" fill="#238a47"/>
+    <path d="M79.5 82V34L84 26L88.5 34V82Z" fill="#238a47"/>
+    <path d="M95 82V34L99.5 26L104 34V82Z" fill="#238a47"/>
+    <path d="M2 46H98V52H2Z" fill="#238a47"/>
+    <path d="M2 64H98V70H2Z" fill="#238a47"/>
+  </g>
+  <g id="details" inkscape:label="details" inkscape:groupmode="layer">
+    <path d="M2.6 44V70" fill="none" stroke="#000" stroke-width="0.9"/>
+    <path d="M10.4 44V70" fill="none" stroke="#000" stroke-width="0.9"/>
+    <path d="M18.1 44V70" fill="none" stroke="#000" stroke-width="0.9"/>
+    <path d="M25.9 44V70" fill="none" stroke="#000" stroke-width="0.9"/>
+    <path d="M33.6 44V70" fill="none" stroke="#000" stroke-width="0.9"/>
+    <path d="M41.4 44V70" fill="none" stroke="#000" stroke-width="0.9"/>
+    <path d="M49.1 44V70" fill="none" stroke="#000" stroke-width="0.9"/>
+    <path d="M56.9 44V70" fill="none" stroke="#000" stroke-width="0.9"/>
+    <path d="M64.6 44V70" fill="none" stroke="#000" stroke-width="0.9"/>
+    <path d="M72.4 44V70" fill="none" stroke="#000" stroke-width="0.9"/>
+    <path d="M80.1 44V70" fill="none" stroke="#000" stroke-width="0.9"/>
+    <path d="M87.9 44V70" fill="none" stroke="#000" stroke-width="0.9"/>
+    <path d="M95.6 44V70" fill="none" stroke="#000" stroke-width="0.9"/>
+    <path d="M103.4 44V70" fill="none" stroke="#000" stroke-width="0.9"/>
+  </g>
+</svg>

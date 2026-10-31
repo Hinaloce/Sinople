@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     viewBox="62.3 62.3 75.4 75.4" width="400" height="400"
+     data-meuble="billette"
+     data-nom="Billette"
+     data-categorie="figures"
+     data-singulier="billette"
+     data-pluriel="billettes"
+     data-genre="f"
+     data-ordre="240"
+     data-encre="oui"
+     data-auteur="Azgaar"
+     data-licence="https://creativecommons.org/publicdomain/zero/1.0">
+  <!-- Dessin issu de la collection Armoria (billet.svg) - auteur : Azgaar - licence : https://creativecommons.org/publicdomain/zero/1.0 -->
+  <g inkscape:label="corps" inkscape:groupmode="layer">
+    <polygon points="80 65 120 65 120 135 80 135"/>
+  </g>
+</svg>

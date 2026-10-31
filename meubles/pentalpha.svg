@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" viewBox="0 0 100 100" width="400" height="400" data-meuble="pentalpha" data-nom="Pentalpha" data-categorie="astres" data-singulier="pentalpha" data-pluriel="pentalphas" data-genre="m" data-ordre="68">
+  <!-- Calques : corps (émail du meuble), langue, armes (griffes, serres, cornes…), details (traits intérieurs). Les couleurs de ce fichier sont indicatives : l'application les remplace. -->
+  <g id="corps" inkscape:label="corps" inkscape:groupmode="layer">
+    <path d="M50 10L75.9 89.6L8.2 40.4L91.8 40.4L24.1 89.6Z" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#1d1b1c" stroke-width="6"/>
+  </g>
+</svg>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     viewBox="59.08 55.26 81.84 81.84" width="400" height="400"
+     data-meuble="etoile"
+     data-nom="Étoile"
+     data-categorie="astres"
+     data-singulier="étoile"
+     data-pluriel="étoiles"
+     data-genre="f"
+     data-ordre="63"
+     data-encre="oui"
+     data-auteur="Azgaar"
+     data-licence="https://creativecommons.org/publicdomain/zero/1.0">
+  <!-- Dessin issu de la collection Armoria (mullet.svg) - auteur : Azgaar - licence : https://creativecommons.org/publicdomain/zero/1.0 -->
+  <g inkscape:label="corps" inkscape:groupmode="layer">
+    <polygon points="100 60 108.98 87.64 138.04 87.64 114.53 104.72 123.51 132.36 100 115.28 76.49 132.36 85.47 104.72 61.96 87.64 91.02 87.64"/>
+  </g>
+</svg>

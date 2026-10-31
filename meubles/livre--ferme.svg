@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     viewBox="57.06 57.55 84.98 84.98" width="400" height="400"
+     data-meuble="livre"
+     data-nom="Livre"
+     data-categorie="objets"
+     data-singulier="livre"
+     data-pluriel="livres"
+     data-genre="m"
+     data-ordre="294"
+     data-variante="ferme"
+     data-variante-nom="Fermé"
+     data-defaut="oui"
+     data-adjectif="fermé|fermés"
+     data-encre="oui"
+     data-source="http://wappenwiki.org/images/2/24/Perm.svg"
+     data-licence="https://creativecommons.org/licenses/by-nc-sa/3.0">
+  <!-- Dessin issu de la collection Armoria (bookClosed.svg) - source : http://wappenwiki.org/images/2/24/Perm.svg - licence : https://creativecommons.org/licenses/by-nc-sa/3.0 -->
+  <g inkscape:label="corps" inkscape:groupmode="layer">
+    <path d="M117.887 60.525H73.669s-2.051 1.86-.573 5.151 4.866 4.389 4.866 4.389h49.465l-9.54-9.54z" stroke-width=".716"/>
+    <rect x="77.962" y="70.065" width="50.896" height="69.499" stroke-width=".716"/>
+    <rect x="83.066" y="75.264" width="40.736" height="59.1" stroke-width=".716"/>
+    <path fill="none" stroke-width=".477" d="M72.858 61.765h46.555M72.715 62.91h47.318M72.62 64.055h48.654m-48.798 1.144h49.704m-48.845 1.145h50.324M74.24 67.537h50.944m-50.133 1.24h51.04"/>
+    <path stroke-linejoin="round" d="M71.475 131.502c0 6.297 6.535 8.062 6.535 8.062v-69.5s-3.387-1.096-4.866-4.388.573-5.151.573-5.151-1.718.334-2.051 1.43c-.191.62-.191 2.1-.191 2.1v67.447z" stroke-width=".716"/>
+    <polygon points="123.802 85.424 116.79 75.264 123.802 75.264" stroke-width=".716"/>
+    <polygon points="83.066 124.204 90.078 134.364 83.066 134.364" stroke-width=".716"/>
+    <polygon points="83.066 85.424 90.078 75.264 83.066 75.264" stroke-width=".716"/>
+    <polygon points="123.802 124.204 116.79 134.364 123.802 134.364" stroke-width=".716"/>
+    <path d="M77.962 129.69c-4.436 0-6.535-3.626-6.535-3.626s-1.193-1.764-1.193-4.054 1.193-3.387 1.193-3.387c0 7.441 6.535 7.728 6.535 7.728v3.339z" stroke-width=".716"/>
+    <path d="M77.962 120.15c-4.436 0-6.535-3.626-6.535-3.626s-1.193-1.764-1.193-4.054 1.193-3.387 1.193-3.387c0 7.441 6.535 7.728 6.535 7.728v3.339z" stroke-width=".716"/>
+    <path d="M77.962 92.436c-4.436 0-6.535-3.625-6.535-3.625s-1.193-1.765-1.193-4.055 1.193-3.386 1.193-3.386c0 7.44 6.535 7.727 6.535 7.727v3.339z" stroke-width=".716"/>
+    <path d="M77.962 82.896c-4.436 0-6.535-3.625-6.535-3.625s-1.193-1.765-1.193-4.055 1.193-3.386 1.193-3.386c0 7.44 6.535 7.727 6.535 7.727v3.339z" stroke-width=".716"/>
+  </g>
+</svg>

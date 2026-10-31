@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" viewBox="0 0 100 100" width="400" height="400" data-meuble="mont3" data-nom="Mont à trois coupeaux" data-categorie="astres" data-singulier="mont à trois coupeaux" data-pluriel="monts à trois coupeaux" data-genre="m" data-ordre="70">
+  <!-- Calques : corps (émail du meuble), langue, armes (griffes, serres, cornes…), details (traits intérieurs). Les couleurs de ce fichier sont indicatives : l'application les remplace. -->
+  <g id="corps" inkscape:label="corps" inkscape:groupmode="layer">
+    <path d="M27 97L27 53.3C27 34 73 34 73 53.3L73 97Z" fill="#1d1b1c"/>
+    <path d="M4 97L4 75.3C4 56 50 56 50 75.3L50 97Z" fill="#1d1b1c"/>
+    <path d="M50 97L50 75.3C50 56 96 56 96 75.3L96 97Z" fill="#1d1b1c"/>
+  </g>
+</svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" viewBox="0 0 100 100" width="400" height="400" data-meuble="chabot" data-nom="Chabot" data-categorie="aquatiques" data-singulier="chabot" data-pluriel="chabots" data-genre="m" data-ordre="25">
+  <!-- Calques : corps (émail du meuble), langue, armes (griffes, serres, cornes…), details (traits intérieurs). Les couleurs de ce fichier sont indicatives : l'application les remplace. -->
+  <g id="corps" inkscape:label="corps" inkscape:groupmode="layer">
+    <path d="M57 41 L71 50 L57 55 Z" fill="#1d1b1c"/>
+    <path d="M43 41 L29 50 L43 55 Z" fill="#1d1b1c"/>
+    <path d="M50 8 C62 8 70 16 70 26 C70 34 64 38 58 40 L56 64 L65 81 L56 78 L50 92 L44 78 L35 81 L44 64 L42 40 C36 38 30 34 30 26 C30 16 38 8 50 8 Z" fill="#1d1b1c"/>
+  </g>
+  <g id="details" inkscape:label="details" inkscape:groupmode="layer">
+    <circle cx="42" cy="20" r="2" fill="#ffffff"/>
+    <circle cx="58" cy="20" r="2" fill="#ffffff"/>
+    <path d="M50 30 L50 56" fill="none" stroke="#ffffff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

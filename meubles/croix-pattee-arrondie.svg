@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     viewBox="55.68 55.68 88.65 88.65" width="400" height="400"
+     data-meuble="croix-pattee-arrondie"
+     data-nom="Croix pattée arrondie"
+     data-categorie="croix"
+     data-singulier="croix pattée arrondie"
+     data-pluriel="croix pattées arrondies"
+     data-genre="f"
+     data-ordre="231"
+     data-encre="oui"
+     data-auteur="Azgaar"
+     data-licence="https://creativecommons.org/publicdomain/zero/1.0">
+  <!-- Dessin issu de la collection Armoria (crossPatteeAlisee.svg) - auteur : Azgaar - licence : https://creativecommons.org/publicdomain/zero/1.0 -->
+  <g inkscape:label="corps" inkscape:groupmode="layer">
+    <path d="m 76,67 c 10,-11 38,-11 48,0 -15,5 -20,23 -19,28 5,1 23,-4 28,-19 11,10 11,38 0,48 -5,-15 -23,-20 -28,-19 -1,5 4,23 19,28 -10,11 -38,11 -48,0 15,-5 20,-23 19,-28 -5,-1 -23,4 -28,19 -11,-10 -11,-38 0,-48 5,15 23,20 28,19 1,-5 -4,-23 -19,-28 z" stroke-width=".5"/>
+  </g>
+</svg>

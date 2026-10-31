@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" viewBox="0 0 100 100" width="400" height="400" data-meuble="bar" data-nom="Bar" data-categorie="aquatiques" data-singulier="bar" data-pluriel="bars" data-genre="m" data-ordre="24">
+  <!-- Calques : corps (émail du meuble), langue, armes (griffes, serres, cornes…), details (traits intérieurs). Les couleurs de ce fichier sont indicatives : l'application les remplace. -->
+  <g id="corps" inkscape:label="corps" inkscape:groupmode="layer">
+    <path d="M50 5 C58 7 62 15 62 26 C62 40 58 54 56 66 L65 79 L60 83 L54 75 L50 87 L46 75 L40 83 L35 79 L44 66 C42 54 38 40 38 26 C38 15 42 7 50 5 Z" fill="#1d1b1c"/>
+    <path d="M61 30 L71 34 L61 41 Z" fill="#1d1b1c"/>
+    <path d="M39 42 L29 46 L39 52 Z" fill="#1d1b1c"/>
+  </g>
+  <g id="details" inkscape:label="details" inkscape:groupmode="layer">
+    <circle cx="46" cy="15" r="1.8" fill="#ffffff"/>
+    <path d="M44 24 Q50 28 56 24" fill="none" stroke="#ffffff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

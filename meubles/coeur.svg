@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     viewBox="67.93 72.05 64 64" width="400" height="400"
+     data-meuble="coeur"
+     data-nom="Cœur"
+     data-categorie="corps"
+     data-singulier="cœur"
+     data-pluriel="cœurs"
+     data-genre="m"
+     data-ordre="37"
+     data-encre="oui"
+     data-auteur="Azgaar"
+     data-licence="https://creativecommons.org/publicdomain/zero/1.0">
+  <!-- Dessin issu de la collection Armoria (heart.svg) - auteur : Azgaar - licence : https://creativecommons.org/publicdomain/zero/1.0 -->
+  <g inkscape:label="corps" inkscape:groupmode="layer">
+    <path stroke-width=".5" d="M100 84c-.7-1.1-1.4-2.2-2.4-3.2-6.3-6.8-16.6-6.8-23 0-6.3 6.8-5.4 17.8 1 24.6 6.3 6.8 17.7 12.4 24.2 27 7.3-14.4 18.2-20.2 24.5-27 6.3-6.8 7.3-17.8 1-24.6-6.3-6.8-16.6-6.8-23 0-.9 1-1.6 2.1-2.3 3.2z"/>
+  </g>
+</svg>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     viewBox="57 57 86 86" width="400" height="400"
+     data-meuble="molette"
+     data-nom="Molette"
+     data-categorie="astres"
+     data-singulier="molette"
+     data-pluriel="molettes"
+     data-genre="f"
+     data-ordre="66"
+     data-encre="oui"
+     data-auteur="Azgaar"
+     data-licence="https://creativecommons.org/publicdomain/zero/1.0">
+  <!-- Dessin issu de la collection Armoria (mullet6Pierced.svg) - auteur : Azgaar - licence : https://creativecommons.org/publicdomain/zero/1.0 -->
+  <g inkscape:label="corps" inkscape:groupmode="layer">
+    <path d="M100 60l7.64 26.77 27-6.77-19.36 20 19.36 20-27-6.77L100 140l-7.64-26.77-27 6.77 19.36-20-19.36-20 27 6.77z M 108,100 a 8,8 0 0 0 -8,-8 8,8 0 0 0 -8,8 8,8 0 0 0 8,8 8,8 0 0 0 8,-8 z"/>
+  </g>
+</svg>

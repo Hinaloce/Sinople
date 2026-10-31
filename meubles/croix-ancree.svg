@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     viewBox="57.11 57.11 85.79 85.79" width="400" height="400"
+     data-meuble="croix-ancree"
+     data-nom="Croix ancrée"
+     data-categorie="croix"
+     data-singulier="croix ancrée"
+     data-pluriel="croix ancrées"
+     data-genre="f"
+     data-ordre="226"
+     data-encre="oui"
+     data-auteur="Azgaar"
+     data-licence="https://creativecommons.org/publicdomain/zero/1.0">
+  <!-- Dessin issu de la collection Armoria (crossMoline.svg) - auteur : Azgaar - licence : https://creativecommons.org/publicdomain/zero/1.0 -->
+  <g inkscape:label="corps" inkscape:groupmode="layer">
+    <path d="M104.3 74.9c0-6.4 2.7-11.4 5.1-14.8-4.1 0-7.2 2-9.4 4.9-2.2-2.9-5.3-4.9-9.4-4.9 2.5 3.4 5.1 8.4 5.1 14.8v20.8h-20.8c-6.4 0-11.3-2.7-14.8-5.1 0 4.1 2 7.2 4.9 9.4-2.9 2.2-4.9 5.4-4.9 9.4 3.4-2.5 8.3-5.1 14.8-5.1h20.8v20.8c0 6.4-2.7 11.4-5.1 14.8 4.1 0 7.2-2 9.4-4.9 2.2 2.9 5.3 4.9 9.4 4.9-2.5-3.4-5.1-8.4-5.1-14.8v-20.8h20.8c6.4 0 11.3 2.7 14.8 5.1 0-4.1-2-7.2-4.9-9.4 2.9-2.2 4.9-5.4 4.9-9.4-3.4 2.5-8.3 5.1-14.8 5.1h-20.8z" stroke-width=".5"/>
+  </g>
+</svg>

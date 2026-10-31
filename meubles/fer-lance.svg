@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     viewBox="57.72 57.65 84.59 84.59" width="400" height="400"
+     data-meuble="fer-lance"
+     data-nom="Fer de lance"
+     data-categorie="armes"
+     data-singulier="fer de lance"
+     data-pluriel="fers de lance"
+     data-genre="m"
+     data-ordre="263"
+     data-encre="oui"
+     data-auteur="Orror"
+     data-source="https://commons.wikimedia.org/wiki/File:Meuble_h%C3%A9raldique_Fer_de_lance.svg"
+     data-licence="https://www.gnu.org/licenses/fdl-1.3.html">
+  <!-- Dessin issu de la collection Armoria (lanceHead.svg) - auteur : Orror - source : https://commons.wikimedia.org/wiki/File:Meuble_h%C3%A9raldique_Fer_de_lance.svg - licence : https://www.gnu.org/licenses/fdl-1.3.html -->
+  <g inkscape:label="corps" inkscape:groupmode="layer">
+    <g transform="matrix(0.9,0,0,0.9,-4.7,-15.1)"><path d="M116.25 84.13v.59L98.5 140.56s4.21 0 8.13 3.9c3.9 3.92 4.25 8.16 4.25 8.16h10.93s.3-4.24 4.22-8.15c3.91-3.91 8.16-3.9 8.16-3.9l-17.75-55.85v-.6l-.1.29-.09-.28z" stroke-width=".5"/></g>
+    <g transform="matrix(0.9,0,0,0.9,-4.7,-15.1)"><path d="M116.42 100.12v52.5" stroke-width=".5"/></g>
+    <g transform="matrix(0.9,0,0,0.9,-4.7,-15.1)"><rect width="15.6" height="3.3" x="108.6" y="152.6" ry="1.7" stroke-width=".5"/></g>
+    <g transform="matrix(0.9,0,0,0.9,-4.7,-15.1)"><path d="M111.22 155.88l-1.97 15.65h14.5l-1.94-15.5-10.6-.16z" stroke-width=".5"/></g>
+  </g>
+</svg>

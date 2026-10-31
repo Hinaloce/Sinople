@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     viewBox="57 57 86 86" width="400" height="400"
+     data-meuble="croix-recroisetee"
+     data-nom="Croix recroisetée"
+     data-categorie="croix"
+     data-singulier="croix recroisetée"
+     data-pluriel="croix recroisetées"
+     data-genre="f"
+     data-ordre="224"
+     data-encre="oui"
+     data-auteur="Azgaar"
+     data-licence="https://creativecommons.org/publicdomain/zero/1.0">
+  <!-- Dessin issu de la collection Armoria (crosslet.svg) - auteur : Azgaar - licence : https://creativecommons.org/publicdomain/zero/1.0 -->
+  <g inkscape:label="corps" inkscape:groupmode="layer">
+    <path d="M95 60h10v10h12v10h-12v15h15V83h10v12h10v10h-10v12h-10v-12h-15v15h12v10h-12v10H95v-10H83v-10h12v-15H80v12H70v-12H60V95h10V83h10v12h15V80H83V70h12z" stroke-width=".5"/>
+  </g>
+</svg>

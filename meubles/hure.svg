@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" viewBox="0 0 100 100" width="400" height="400" data-meuble="hure" data-nom="Hure de sanglier" data-categorie="animaux" data-singulier="hure de sanglier" data-pluriel="hures de sanglier" data-genre="f" data-ordre="11" data-armes-nom="Défense" data-armes-terme="défendu">
+  <!-- Calques : corps (émail du meuble), langue, armes (griffes, serres, cornes…), details (traits intérieurs). Les couleurs de ce fichier sont indicatives : l'application les remplace. -->
+  <g id="corps" inkscape:label="corps" inkscape:groupmode="layer">
+    <path d="M20 50 C18 46 18 42 22 40 C30 34 42 28 54 26 L58 18 L62 24 L66 14 L70 22 L76 16 L76 26 L82 24 L80 34 L86 36 L80 42 C82 52 78 62 70 66 L60 64 L50 62 C40 60 30 58 24 56 Z" fill="#1d1b1c"/>
+    <path d="M14 43 L22 40 L24 56 L14 54 Z" fill="#1d1b1c"/>
+    <path d="M58 31 L64 22 L67 33 Z" fill="#1d1b1c"/>
+  </g>
+  <g id="armes" inkscape:label="armes" inkscape:groupmode="layer">
+    <path d="M33 54 C27 50 27 44 31 39 C31 44 32 48 36 52 Z" fill="#2a56a8"/>
+  </g>
+  <g id="details" inkscape:label="details" inkscape:groupmode="layer">
+    <circle cx="46" cy="38" r="1.8" fill="#ffffff"/>
+  </g>
+</svg>

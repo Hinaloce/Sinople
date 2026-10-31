@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     viewBox="51.7 51.7 96.6 96.6" width="400" height="400"
+     data-meuble="macle"
+     data-nom="Macle"
+     data-categorie="figures"
+     data-singulier="macle"
+     data-pluriel="macles"
+     data-genre="f"
+     data-ordre="76"
+     data-encre="oui"
+     data-auteur="Azgaar"
+     data-licence="https://creativecommons.org/publicdomain/zero/1.0">
+  <!-- Dessin issu de la collection Armoria (mascle.svg) - auteur : Azgaar - licence : https://creativecommons.org/publicdomain/zero/1.0 -->
+  <g inkscape:label="corps" inkscape:groupmode="layer">
+    <path d="M100 55l30 45-30 45-30-45zm0 15.75L80.5 100l19.5 29.25L119.5 100z"/>
+  </g>
+</svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     viewBox="0 0 100 100" width="400" height="400"
+     data-meuble="bourdon"
+     data-nom="Bourdon"
+     data-categorie="objets"
+     data-singulier="bourdon"
+     data-pluriel="bourdons"
+     data-genre="m"
+     data-ordre="243">
+  <!-- Dessin original pour l'Atelier d'héraldique : bâton de pèlerin à deux pommes. -->
+  <g id="corps" inkscape:label="corps" inkscape:groupmode="layer">
+    <path d="M47.5 30H52.5L51.5 93L50 98L48.5 93Z" fill="#80318f"/>
+    <circle cx="50" cy="12" r="7.5" fill="#80318f"/>
+    <circle cx="50" cy="26" r="5.5" fill="#80318f"/>
+    <path d="M44 36H56L55 40H45Z" fill="#80318f"/>
+    <path d="M45 72H55L54 76H46Z" fill="#80318f"/>
+  </g>
+</svg>

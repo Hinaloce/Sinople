@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" viewBox="0 0 100 100" width="400" height="400" data-meuble="arbre" data-nom="Arbre" data-categorie="vegetaux" data-singulier="arbre" data-pluriel="arbres" data-genre="m" data-ordre="40">
+  <!-- Calques : corps (émail du meuble), langue, armes (griffes, serres, cornes…), details (traits intérieurs). Les couleurs de ce fichier sont indicatives : l'application les remplace. -->
+  <g id="corps" inkscape:label="corps" inkscape:groupmode="layer">
+    <path d="M44 95 C46 86 47 76 47 64 L47 40 L53 40 L53 64 C53 76 54 86 56 95 L63 97 L37 97 Z" fill="#1d1b1c"/>
+    <path d="M50 70 C44 62 36 58 26 54 M50 66 C56 58 64 54 74 52 M50 54 C44 46 38 40 30 34 M50 52 C56 44 62 38 70 34 M50 44 L50 12" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#1d1b1c" stroke-width="3"/>
+    <path d="M26 54 C22.4 56.3 17.6 54.6 15.6 50.2 C20 48.2 24.8 49.9 26 54 Z" fill="#1d1b1c"/>
+    <path d="M19 47 C14.8 47.6 11.2 44 11.2 39.2 C16 39.2 19.6 42.8 19 47 Z" fill="#1d1b1c"/>
+    <path d="M30 45 C25.9 43.8 24.2 39 26.2 34.6 C30.6 36.6 32.3 41.4 30 45 Z" fill="#1d1b1c"/>
+    <path d="M74 52 C75.2 47.9 80 46.2 84.4 48.2 C82.4 52.6 77.6 54.3 74 52 Z" fill="#1d1b1c"/>
+    <path d="M81 46 C80.4 41.8 84 38.2 88.8 38.2 C88.8 43 85.2 46.6 81 46 Z" fill="#1d1b1c"/>
+    <path d="M70 44 C67.7 40.4 69.4 35.6 73.8 33.6 C75.8 38 74.1 42.8 70 44 Z" fill="#1d1b1c"/>
+    <path d="M30 34 C26 35.3 21.8 32.4 20.9 27.7 C25.7 26.8 29.9 29.8 30 34 Z" fill="#1d1b1c"/>
+    <path d="M22 28 C17.8 27.9 14.8 23.7 15.7 18.9 C20.4 19.8 23.3 24 22 28 Z" fill="#1d1b1c"/>
+    <path d="M36 27 C32.4 24.8 31.9 19.7 35 16 C38.7 19.1 39.2 24.2 36 27 Z" fill="#1d1b1c"/>
+    <path d="M70 34 C70.1 29.8 74.3 26.8 79.1 27.7 C78.2 32.4 74 35.3 70 34 Z" fill="#1d1b1c"/>
+    <path d="M78 28 C76.7 24 79.6 19.8 84.3 18.9 C85.2 23.7 82.2 27.9 78 28 Z" fill="#1d1b1c"/>
+    <path d="M64 27 C60.8 24.2 61.3 19.1 65 16 C68.1 19.7 67.6 24.8 64 27 Z" fill="#1d1b1c"/>
+    <path d="M50 10 C46.6 7.5 46.6 2.4 50 -1 C53.4 2.4 53.4 7.5 50 10 Z" fill="#1d1b1c"/>
+    <path d="M42 15 C37.8 14.5 35.2 10.1 36.5 5.4 C41.1 6.7 43.7 11.1 42 15 Z" fill="#1d1b1c"/>
+    <path d="M58 15 C56.3 11.1 58.9 6.7 63.5 5.4 C64.8 10.1 62.2 14.5 58 15 Z" fill="#1d1b1c"/>
+    <path d="M38 41 C34.4 43.3 29.6 41.6 27.6 37.2 C32 35.2 36.8 36.9 38 41 Z" fill="#1d1b1c"/>
+    <path d="M62 41 C63.2 36.9 68 35.2 72.4 37.2 C70.4 41.6 65.6 43.3 62 41 Z" fill="#1d1b1c"/>
+    <path d="M42 60 C39.8 63.6 34.7 64.1 31 61 C34.1 57.3 39.2 56.8 42 60 Z" fill="#1d1b1c"/>
+    <path d="M58 58 C60.8 54.8 65.9 55.3 69 59 C65.3 62.1 60.2 61.6 58 58 Z" fill="#1d1b1c"/>
+    <path d="M50 25 C46.6 22.5 46.6 17.4 50 14 C53.4 17.4 53.4 22.5 50 25 Z" fill="#1d1b1c"/>
+    <path d="M44 33 C39.8 33.2 36.5 29.3 36.9 24.5 C41.7 25 45 28.9 44 33 Z" fill="#1d1b1c"/>
+    <path d="M56 33 C55 28.9 58.3 25 63.1 24.5 C63.5 29.3 60.2 33.2 56 33 Z" fill="#1d1b1c"/>
+  </g>
+</svg>

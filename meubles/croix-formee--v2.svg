@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     viewBox="53.03 53.03 93.95 93.95" width="400" height="400"
+     data-meuble="croix-formee"
+     data-nom="Croix formée"
+     data-categorie="croix"
+     data-singulier="croix formée"
+     data-pluriel="croix formées"
+     data-genre="f"
+     data-ordre="218"
+     data-variante="v2"
+     data-variante-nom="Style 2"
+     data-adjectif=""
+     data-encre="oui"
+     data-auteur="Azgaar"
+     data-licence="https://creativecommons.org/publicdomain/zero/1.0">
+  <!-- Dessin issu de la collection Armoria (crossFormee2.svg) - auteur : Azgaar - licence : https://creativecommons.org/publicdomain/zero/1.0 -->
+  <g inkscape:label="corps" inkscape:groupmode="layer">
+    <path d="m 88,60 c 7,-5 17,-5 24,0 -7,8 -9,30 -7,35 5,2 27,0 35,-7 5,7 5,17 0,24 -8,-7 -30,-9 -35,-7 -2,5 0,27 7,35 -7,5 -17,5 -24,0 7,-8 9,-30 7,-35 -5,-2 -27,0 -35,7 -5,-7 -5,-17 0,-24 8,7 30,9 35,7 2,-5 0,-27 -7,-35 z" stroke-width=".5"/>
+  </g>
+</svg>

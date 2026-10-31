@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     viewBox="59.08 55.26 81.84 81.84" width="400" height="400"
+     data-meuble="molette5"
+     data-nom="Molette à cinq rais"
+     data-categorie="astres"
+     data-singulier="molette à cinq rais"
+     data-pluriel="molettes à cinq rais"
+     data-genre="f"
+     data-ordre="199"
+     data-encre="oui"
+     data-auteur="Azgaar"
+     data-licence="https://creativecommons.org/publicdomain/zero/1.0">
+  <!-- Dessin issu de la collection Armoria (mulletPierced.svg) - auteur : Azgaar - licence : https://creativecommons.org/publicdomain/zero/1.0 -->
+  <g inkscape:label="corps" inkscape:groupmode="layer">
+    <path d="M100 60l8.98 27.64h29.06l-23.51 17.08 8.98 27.64L100 115.28l-23.51 17.08 8.98-27.64-23.51-17.08h29.06z M 108,100 a 8,8 0 0 0 -8,-8 8,8 0 0 0 -8,8 8,8 0 0 0 8,8 8,8 0 0 0 8,-8 z"/>
+  </g>
+</svg>

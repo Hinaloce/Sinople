@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     viewBox="57 57 86 86" width="400" height="400"
+     data-meuble="croix-videe"
+     data-nom="Croix vidée"
+     data-categorie="croix"
+     data-singulier="croix vidée"
+     data-pluriel="croix vidées"
+     data-genre="f"
+     data-ordre="239"
+     data-encre="oui"
+     data-auteur="Azgaar"
+     data-licence="https://creativecommons.org/publicdomain/zero/1.0">
+  <!-- Dessin issu de la collection Armoria (crossVoided.svg) - auteur : Azgaar - licence : https://creativecommons.org/publicdomain/zero/1.0 -->
+  <g inkscape:label="corps" inkscape:groupmode="layer">
+    <path d="M90 60v30H60v20h30v30h20v-30h30V90h-30V60H90zm5 5h10v30h30v10h-30v30H95v-30H65V95h30V65z" stroke-width=".5"/>
+  </g>
+</svg>
