@@ -783,14 +783,26 @@
     const t = $('#toast'); t.textContent = msg; t.classList.add('show');
     clearTimeout(toast.h); toast.h = setTimeout(() => t.classList.remove('show'), 2200);
   }
-  function exportSVG() { download('blason.svg', new Blob([H.renderArms(S, { standalone: true, px: 600 })], { type: 'image/svg+xml' })); }
+  /* Nom de fichier tiré du blasonnement, simplifié : sans accents, ponctuation ni petits mots, coupé vers 60 caractères
+     (« D'azur à trois trèfles d'or. » → blason-azur-trois-trefles-or) */
+  const STOP = new Set(['de', 'd', 'du', 'des', 'a', 'au', 'aux', 'et', 'la', 'le', 'les', 'l', 'en', 'un', 'une', 'sur']);
+  function fileName(ext) {
+    const words = H.blazon(S).normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
+      .split(/[^a-z0-9]+/).filter(w => w && !STOP.has(w) && !/^\d+$/.test(w));   /* sans les chiffres (« 2 et 1 », « au 1 ») */
+    let name = 'blason';
+    for (const w of words) { if (name.length + w.length + 1 > 60) break; name += '-' + w; }
+    return name + '.' + ext;
+  }
+  function exportSVG() { download(fileName('svg'), new Blob([H.renderArms(S, { standalone: true, px: 600 })], { type: 'image/svg+xml' })); }
+  /* PNG de 3200 × 3968 : quatre fois la taille d'affichage habituelle, pour zoomer à 400 % sans voir les pixels */
   function exportPNG() {
-    const svg = H.renderArms(S, { standalone: true, px: 800 });
+    const W = 3200, Hh = Math.round(W * 248 / 200);
+    const svg = H.renderArms(S, { standalone: true, px: W }), name = fileName('png');
     const img = new Image();
     img.onload = () => {
-      const cv = document.createElement('canvas'); cv.width = 800; cv.height = 992;
-      cv.getContext('2d').drawImage(img, 0, 0, 800, 992);
-      cv.toBlob(b => download('blason.png', b), 'image/png');
+      const cv = document.createElement('canvas'); cv.width = W; cv.height = Hh;
+      cv.getContext('2d').drawImage(img, 0, 0, W, Hh);
+      cv.toBlob(b => download(name, b), 'image/png');
     };
     img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
   }
