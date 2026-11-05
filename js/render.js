@@ -154,7 +154,9 @@
       const drawPiece = p => {
         const geom = H.pieceGeom(p, B);
         const paths = H.piecePaths(geom, p.line);
-        for (const pp of paths) g += `<path d="${pp.d}"${pp.eo ? ' fill-rule="evenodd"' : ''} fill="none" stroke="${INK}" stroke-width="2.8" stroke-linejoin="round"/>`;
+        /* ow : réglage de l'épaisseur du contour de la pièce (0 = sans contour) */
+        const pw = 2.8 * (p.ow === undefined ? 1 : p.ow);
+        if (pw > 0) for (const pp of paths) g += `<path d="${pp.d}"${pp.eo ? ' fill-rule="evenodd"' : ''} fill="none" stroke="${INK}" stroke-width="${+pw.toFixed(2)}" stroke-linejoin="round"/>`;
         const pc = p.inner && H.pieceCtx(F, ctx, p);
         if (pc) {
           g += `<g clip-path="url(#${clip(paths.map(x => x.d).join(''), geom.eo)})">${field(p.inner, pc)}</g>`;

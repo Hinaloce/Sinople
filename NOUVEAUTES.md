@@ -1,5 +1,14 @@
 # Nouveautés de Sinople
 
+## Version 1.2 — 5 novembre 2026
+
+### Nouveau : l'épaisseur du contour des pièces
+Les pièces (fasce, pal, chef, bordure…) ont maintenant un curseur **Épaisseur du contour**, comme les meubles. Il permet d'affiner, d'épaissir ou de supprimer le trait noir qui les entoure (0 = sans contour).
+
+### Améliorations
+- La taille d'un meuble va maintenant jusqu'à ×6 (au lieu de ×4).
+- Le bouton qui ouvre l'intérieur d'une pièce ou d'un meuble composé s'appelle maintenant **Ouvrir la composition ▸**, comme le bouton « Retirer la composition » placé à côté.
+
 ## Version 1.1 — 5 novembre 2026
 
 ### Nouveau : les meubles composés

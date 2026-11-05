@@ -41,7 +41,7 @@
   /* [min, max, pas] ; motif du trait : pas de 0,05, le plus petit qui change toujours le dessin
      (un bord porte un nombre entier de motifs, seule leur hauteur varie entre deux changements de nombre) */
   /* [min, max, pas, valeur par défaut (1 si absente)] ; off : décalage d'une pièce ou d'un meuble, en unités de l'écu (200 de large) */
-  const RANGE = { lz: [0.2, 4, 0.05], fs: [0.2, 4], sp: [0.1, 2.5], spSeme: [0.3, 2.5], th: [0.3, 2], scale: [0.2, 4], ow: [0, 4], off: [-60, 60, 0.5, 0], rot: [-90, 90, 1, 0] };
+  const RANGE = { lz: [0.2, 4, 0.05], fs: [0.2, 4], sp: [0.1, 2.5], spSeme: [0.3, 2.5], th: [0.3, 2], scale: [0.2, 6], ow: [0, 4], off: [-60, 60, 0.5, 0], rot: [-90, 90, 1, 0] };
   const defOf = key => (RANGE[key][3] === undefined ? 1 : RANGE[key][3]);
   const num = (v, key) => (+v >= RANGE[key][0] && +v <= RANGE[key][1] ? +v : defOf(key));
   /* affichage de la valeur d'un curseur : ×1.20 pour un facteur, +3.5 pour un décalage */
@@ -60,7 +60,7 @@
     };
     (f.subs || []).forEach((s, i) => { if (s && i < 4) F.subs[i] = sanitizeField(s, true); });
     F.pieces = (f.pieces || []).filter(p => p && H.PCMAP[p.type]).map(p => {
-      const q = { id: p.id || rid('p'), type: p.type, line: H.LMAP[p.line] ? p.line : 'droite', t: okT(p.t) || 'or', th: num(p.th, 'th'), lz: num(p.lz, 'lz'), fs: num(p.fs, 'fs'), lc: !!p.lc, fc: !!p.fc, dx: num(p.dx, 'off'), dy: num(p.dy, 'off') };
+      const q = { id: p.id || rid('p'), type: p.type, line: H.LMAP[p.line] ? p.line : 'droite', t: okT(p.t) || 'or', th: num(p.th, 'th'), lz: num(p.lz, 'lz'), fs: num(p.fs, 'fs'), lc: !!p.lc, fc: !!p.fc, ow: p.ow === undefined ? 1 : num(p.ow, 'ow'), dx: num(p.dx, 'off'), dy: num(p.dy, 'off') };
       if (H.MULTI_PIECES.includes(p.type) && [2, 3, 4].includes(+p.n)) q.n = +p.n;
       if (p.type === 'chevron' && p.inv) q.inv = true;
       /* sous le tout (dessinée avant les autres) ou brochant (par-dessus les meubles) : l'un ou l'autre */
@@ -314,7 +314,7 @@
       h += `<div class="editor"><h4>${d.name}</h4>`;
       if (d.box) {
         h += p.inner
-          ? `<div class="row"><button class="btn btn-accent" data-a="openP" data-v="${p.id}">Ouvrir l'intérieur ▸</button><button class="btn" data-a="uncomposeP" data-v="${p.id}">Retirer la composition</button></div>`
+          ? `<div class="row"><button class="btn btn-accent" data-a="openP" data-v="${p.id}">Ouvrir la composition ▸</button><button class="btn" data-a="uncomposeP" data-v="${p.id}">Retirer la composition</button></div>`
           : `<div class="row"><button class="btn" data-a="composeP" data-v="${p.id}">Composer l'intérieur ▸</button><span class="hint" style="margin:0">y placer partition, pièces et meubles</span></div>`;
       }
       if (H.MULTI_PIECES.includes(p.type)) {
@@ -336,6 +336,7 @@
         <label class="check"><input type="checkbox" data-a="ctr" data-v="p:broch" data-k="${p.id}" ${p.broch ? 'checked' : ''}> Brochant <em>(sur les meubles)</em></label>
         <label class="check"><input type="checkbox" data-a="ctr" data-v="p:sous" data-k="${p.id}" ${p.sous ? 'checked' : ''}> Sous le tout <em>(sous les autres pièces)</em></label></div></div>`;
       if (p.type !== 'franc-quartier') h += slider(p.type === 'ecusson' ? 'Taille' : 'Épaisseur', 'th', p.id, p.th, 'th');
+      h += slider('Épaisseur du contour', 'pow', p.id, p.ow, 'ow');
       /* décalage manuel (la bordure et l'orle suivent le bord de l'écu : pas de décalage) */
       if (p.type !== 'bordure' && p.type !== 'orle') h += offsetSliders('p', p);
       h += '</div>';
@@ -373,7 +374,7 @@
       h += `<div class="editor"><h4>${cap(d.sg)}</h4>`;
       /* intérieur composé : partition du meuble, pièces et meubles posés sur lui (une cotice sur un lion…) */
       h += c.inner
-        ? `<div class="row"><button class="btn btn-accent" data-a="openP" data-v="${c.id}">Ouvrir l'intérieur ▸</button><button class="btn" data-a="uncomposeC" data-v="${c.id}">Retirer la composition</button></div>`
+        ? `<div class="row"><button class="btn btn-accent" data-a="openP" data-v="${c.id}">Ouvrir la composition ▸</button><button class="btn" data-a="uncomposeC" data-v="${c.id}">Retirer la composition</button></div>`
         : `<div class="row"><button class="btn" data-a="composeC" data-v="${c.id}">Composer ▸</button><span class="hint" style="margin:0">partition du meuble, pièces et meubles sur lui</span></div>`;
       if (d.variants.length > 1) h += `<div class="sec"><h3>Position</h3>${cards(d.variants.map(x => ({ id: x.id, name: x.name })), v.id, 'cvar', id => tVariant(d.id, id), 'small charges')}</div>`;
       if (!c.inner || c.inner.part === 'plein') h += `<div class="sec"><h3>Émail</h3>${swatches('ctinct', c.t, `data-k="${c.id}"`, ui.strict ? (id => H.conflicts(id, U)) : null)}</div>`;
@@ -714,7 +715,7 @@
     flz: (v) => { cur().lz = v; }, ffs: (v) => { cur().fs = v; },
     plz: (v, k) => { piece(k).lz = v; }, pfs: (v, k) => { piece(k).fs = v; },
     cfs: (v, k) => { charge(k).fs = v; }, csp: (v, k) => { charge(k).sp = v; },
-    th: (v, k) => { piece(k).th = v; }, cscale: (v, k) => { charge(k).scale = v; }, cow: (v, k) => { charge(k).ow = v; },
+    th: (v, k) => { piece(k).th = v; }, cscale: (v, k) => { charge(k).scale = v; }, cow: (v, k) => { charge(k).ow = v; }, pow: (v, k) => { piece(k).ow = v; },
     pdx: (v, k) => { piece(k).dx = v; }, pdy: (v, k) => { piece(k).dy = v; },
     cdx: (v, k) => { charge(k).dx = v; }, cdy: (v, k) => { charge(k).dy = v; }, crot: (v, k) => { charge(k).rot = v; }
   };
