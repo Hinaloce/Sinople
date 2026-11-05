@@ -41,7 +41,7 @@
   /* [min, max, pas] ; motif du trait : pas de 0,05, le plus petit qui change toujours le dessin
      (un bord porte un nombre entier de motifs, seule leur hauteur varie entre deux changements de nombre) */
   /* [min, max, pas, valeur par défaut (1 si absente)] ; off : décalage d'une pièce ou d'un meuble, en unités de l'écu (200 de large) */
-  const RANGE = { lz: [0.2, 4, 0.05], fs: [0.2, 4], sp: [0.1, 2.5], spSeme: [0.3, 2.5], th: [0.3, 2], scale: [0.2, 6], ow: [0, 4], off: [-60, 60, 0.5, 0], rot: [-90, 90, 1, 0] };
+  const RANGE = { lz: [0.2, 4, 0.05], fs: [0.2, 4], sp: [0.1, 2.5], spSeme: [0.3, 2.5], th: [0.1, 2], scale: [0.2, 6], ow: [0, 4], off: [-60, 60, 0.5, 0], rot: [-90, 90, 1, 0] };
   const defOf = key => (RANGE[key][3] === undefined ? 1 : RANGE[key][3]);
   const num = (v, key) => (+v >= RANGE[key][0] && +v <= RANGE[key][1] ? +v : defOf(key));
   /* affichage de la valeur d'un curseur : ×1.20 pour un facteur, +3.5 pour un décalage */

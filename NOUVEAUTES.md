@@ -1,5 +1,10 @@
 # Nouveautés de Sinople
 
+## Version 1.2.1 — 5 novembre 2026
+
+### Amélioration
+- Le curseur **Épaisseur** des pièces descend maintenant jusqu'à ×0,10 (au lieu de ×0,30), pour des fasces, pals ou bandes très fines. Le curseur **Taille** de l'écusson descend de la même façon.
+
 ## Version 1.2 — 5 novembre 2026
 
 ### Nouveau : l'épaisseur du contour des pièces
