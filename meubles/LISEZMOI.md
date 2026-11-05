@@ -1,4 +1,4 @@
-# Les meubles de l'Atelier d'héraldique
+# Les meubles de Sinople
 
 Chaque fichier `.svg` de ce dossier est un meuble (ou une position d'un meuble).
 Vous pouvez les retoucher, les remplacer ou en ajouter de nouveaux avec Inkscape,
@@ -9,10 +9,6 @@ Illustrator ou n'importe quel éditeur vectoriel.
 Double-cliquez sur **`assembler-meubles.bat`** (à la racine du projet), puis rechargez la
 page. Le script regroupe tous les SVG de ce dossier dans `js/meubles-bundle.js`, le seul
 fichier que le navigateur peut lire quand l'application est ouverte en double-clic.
-
-Pour essayer un fichier sans relancer le script, utilisez le bouton
-**« ＋ Importer SVG »** de l'onglet Meubles. Le meuble importé est conservé dans
-le navigateur.
 
 ## Structure d'un fichier
 

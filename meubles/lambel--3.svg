@@ -12,7 +12,7 @@
      data-variante-nom="Trois pendants"
      data-adjectif="à trois pendants|à trois pendants"
      data-defaut="oui">
-  <!-- Dessin original pour l'Atelier d'héraldique : traverse et trois pendants évasés. -->
+  <!-- Dessin original pour Sinople : traverse et trois pendants évasés. -->
   <g id="corps" inkscape:label="corps" inkscape:groupmode="layer">
     <path d="M2 30H98V40H2Z" fill="#d1242f"/>
     <path d="M16 39H28L31 70H13Z" fill="#d1242f"/>

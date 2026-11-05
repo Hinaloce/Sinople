@@ -6,6 +6,8 @@ Sinople est une application web d'héraldique, entièrement en français. Elle p
 
 👉 **[Essayer Sinople en ligne](https://hinaloce.github.io/Sinople/)**
 
+Les changements de chaque version sont décrits dans [NOUVEAUTES.md](NOUVEAUTES.md).
+
 ## Ce que l'on peut faire
 
 ### Éditer un blason
@@ -47,7 +49,7 @@ Le guide complet (calques, couleurs, métadonnées) se trouve dans [`meubles/LIS
 | `css/` | La mise en forme |
 | `js/` | Le code : données héraldiques, géométrie de l'écu, rendu, règles et blasonnement, lecture des blasonnements, galerie |
 | `meubles/` | Les dessins des meubles, un fichier SVG par meuble ou par position |
-| `outils/` | Le script qui regroupe les meubles dans `js/meubles-bundle.js`, et le modèle de meuble |
+| `outils/` | Le script qui regroupe les meubles dans `js/meubles-bundle.js`, le modèle de meuble, et `test-blasonnement.html`, qui vérifie que chaque blason de la galerie est relu à l'identique par la page « Blasonnement » |
 
 Le projet est écrit en HTML, CSS et JavaScript, sans bibliothèque ni étape de compilation.
 

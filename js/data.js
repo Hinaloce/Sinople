@@ -211,10 +211,11 @@ window.H = window.H || {};
 
   /* ---------- Traits (lignes de partition) ---------- */
   /* Traits de partition (profils dans geometry.js) — P : période, A : amplitude, en unités de l'écu.
-     m : adjectif du blasonnement ; « {e} » marque l'accord dans une expression, inv : invariable. */
+     m : adjectif du blasonnement ; « {e} » marque l'accord dans une expression, inv : invariable ;
+     alias : autres adjectifs compris par la lecture d'un blasonnement. */
   H.LINES = [
     { id: 'droite', name: 'Droit', m: '', P: 0, A: 0 },
-    { id: 'engrelee', name: 'Échancré', m: 'échancré', P: 15, A: 4.5 },
+    { id: 'engrelee', name: 'Échancré', m: 'échancré', alias: ['engrêlé'], P: 15, A: 4.5 },
     { id: 'invectee', name: 'Cannelé', m: 'cannelé', P: 15, A: 4.5 },
     { id: 'ondee', name: 'Ondé', m: 'ondé', P: 40, A: 4 },
     { id: 'nebulee', name: 'Nébulé', m: 'nébulé', P: 32, A: 8 },
@@ -359,7 +360,6 @@ window.H = window.H || {};
     pairle: points('4 en pairle', 'rangés en pairle', 0.22, 1, 3, 5, 8),
     'pairle-r': points('4 en pairle renversé', 'rangés en pairle renversé', 0.22, 2, 5, 7, 9),
     pointe3: points('3 en pointe', 'rangés en pointe', 0.17, 7, 8, 9),
-    'flanc-d': points('3 au flanc dextre', 'rangés au flanc dextre', 0.22, 1, 4, 7),
     'flanc-d': points('3 au flanc dextre', 'rangés au flanc dextre', 0.22, 1, 4, 7),
     'flanc-s': points('3 au flanc senestre', 'rangés au flanc senestre', 0.22, 3, 6, 9)
   });

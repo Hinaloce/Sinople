@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Sinople — test du blasonnement</title>
+  <style>
+    body { font: 15px/1.4 system-ui, sans-serif; margin: 24px; color: #2a2118; background: #f7f1e3; }
+    h1 { font-size: 1.3rem; margin: 0 0 4px; }
+    #bilan { font-weight: 600; margin: 8px 0 18px; }
+    .ok { color: #2d6a3e; } .ko { color: #a4551a; } .re { color: #1b2740; }
+    table { border-collapse: collapse; width: 100%; background: #fffdf7; }
+    td, th { border: 1px solid #d9ccb2; padding: 6px 8px; vertical-align: top; text-align: left; }
+    td svg { width: 64px; height: 80px; }
+    tr.ko td { background: #fbefe4; }
+    .diff { color: #7a1f2b; }
+  </style>
+</head>
+<body>
+  <!-- Ouvrez ce fichier dans le navigateur (double-clic).
+       Pour chaque blason de la galerie : son blasonnement est relu par l'application, puis réécrit.
+       Le test réussit si le texte réécrit est identique et que la lecture n'a rien signalé. -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs id="fur-defs"></defs></svg>
+  <h1>Test du blasonnement : galerie relue puis réécrite</h1>
+  <p>« Formulé autrement » : tout est compris, mais l'ordre ou la tournure change parce que le blason d'origine utilise des
+    réglages que le blasonnement ne dit pas (décalage, taille).</p>
+  <div id="bilan">Test en cours…</div>
+  <table><thead><tr><th>Blason</th><th>Écu d'origine</th><th>Écu relu</th><th>Blasonnement</th></tr></thead><tbody id="res"></tbody></table>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/geometry.js"></script>
+  <script src="../js/meubles-bundle.js"></script>
+  <script src="../js/charges.js"></script>
+  <script src="../js/render.js"></script>
+  <script src="../js/rules.js"></script>
+  <script src="../js/parse.js"></script>
+  <script src="../js/galerie.js"></script>
+  <script>
+    (function (H) {
+      const esc = s => String(s).replace(/[&<>"]/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[m]));
+      document.getElementById('fur-defs').innerHTML = H.FUR_DEFS;
+      H.loadCharges();
+      /* identique : même texte ; reformulé : tout est compris, mais le texte change (réglages que le blasonnement ne dit pas,
+         comme un décalage ou une taille, qui changent l'ordre des figures) et sa propre relecture ne bouge plus ; écart : le reste */
+      const count = { ok: 0, re: 0, ko: 0 };
+      const LBL = { ok: '✓ identique', re: '≈ formulé autrement', ko: '✗ écart' };
+      document.getElementById('res').innerHTML = H.GALLERY.map(g => {
+        const st = { v: 2, shape: 'moderne', field: g.field };
+        let b1 = '', b2 = '', b3 = '', notes = [], back = null;
+        try {
+          b1 = H.blazon(st);
+          const r = H.parseBlazon(b1);
+          notes = r.notes; back = r.state; b2 = H.blazon(back);
+          b3 = H.blazon(H.parseBlazon(b2).state);
+        } catch (e) { notes = ['Erreur : ' + e.message]; }
+        const res = notes.length || !b1 ? 'ko' : b1 === b2 ? 'ok' : b2 === b3 ? 're' : 'ko';
+        count[res]++;
+        return `<tr class="${res}"><td><b>${esc(g.name)}</b><br><span class="${res}">${LBL[res]}</span></td>
+          <td>${H.renderArms(st)}</td><td>${back ? H.renderArms(back) : ''}</td>
+          <td>${esc(b1)}${res === 'ok' ? '' : `<br><span class="diff">Relu : ${esc(b2 || '—')}</span>${notes.map(n => `<br><span class="diff">• ${esc(n)}</span>`).join('')}`}</td></tr>`;
+      }).join('');
+      const n = H.GALLERY.length;
+      document.getElementById('bilan').innerHTML = `<span class="${count.ko ? 'ko' : 'ok'}">${count.ok} / ${n} relus à l'identique, ` +
+        `${count.re} formulé${count.re > 1 ? 's' : ''} autrement, ${count.ko} écart${count.ko > 1 ? 's' : ''}</span>`;
+    })(window.H);
+  </script>
+</body>
+</html>

@@ -18,11 +18,13 @@
   const TABS = [['ecu', 'Écu'], ['partition', 'Partition'], ['pieces', 'Pièces'], ['meubles', 'Meubles']];
 
   /* ---------- État, historique, persistance ---------- */
+  /* lien partagé (#s=…) : lu une fois puis retiré de l'adresse, pour qu'un rechargement reprenne le blason en cours */
+  const clearShared = () => { if (/^#s=/.test(location.hash)) history.replaceState(null, '', location.pathname + location.search); };
   function load() {
     try {
       const m = location.hash.match(/^#s=(.+)$/);
-      if (m) return JSON.parse(decodeURIComponent(escape(atob(m[1]))));
-      const j = localStorage.getItem(KEY) || localStorage.getItem('blasons.v1');
+      if (m) { const s = JSON.parse(decodeURIComponent(escape(atob(m[1])))); clearShared(); return s; }
+      const j = localStorage.getItem(KEY);
       if (j) return JSON.parse(j);
     } catch (e) {}
     return null;
@@ -84,10 +86,7 @@
   }
   function sanitize(s) {
     if (!s || typeof s !== 'object') return H.defaultState();
-    const field = Object.assign({}, s.field || {});
-    if (s.pieces && !field.pieces) field.pieces = s.pieces;     /* ancien format (v1) */
-    if (s.charges && !field.charges) field.charges = s.charges;
-    return { v: 2, shape: H.SMAP[s.shape] ? s.shape : 'moderne', field: sanitizeField(field) };
+    return { v: 2, shape: H.SMAP[s.shape] ? s.shape : 'moderne', field: sanitizeField(s.field) };
   }
   function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
   function commit() {
@@ -95,6 +94,7 @@
     if (j !== hist[hi]) {
       hist = hist.slice(0, hi + 1); hist.push(j); hi++;
       if (hist.length > 100) { hist.shift(); hi--; }
+      clearShared();
     }
     save(); renderAll();
   }
@@ -275,7 +275,6 @@
   ];
 
   function panelPieces() {
-    const F = cur();
     let h = `<div class="sec"><h3>Ajouter une pièce honorable</h3>
       <p class="hint">Cliquez pour poser une pièce. Le chef, le canton, le franc-quartier, la champagne et l'écusson peuvent ensuite être <b>composés</b> (ex. un sautoir dans un franc-quartier).</p>
       ${cards(H.PIECES, null, 'addP', id => tPiece(id), 'small')}
@@ -345,13 +344,11 @@
   }
 
   function panelMeubles() {
-    const F = cur();
     const q = ui.q.trim().toLowerCase();
     const list = H.CHARGES.filter(c => (ui.cat === 'tous' || c.cat === ui.cat) && (!q || c.name.toLowerCase().includes(q)));
     let h = `<div class="sec"><h3>Ajouter un meuble</h3>
       <div class="chips">${H.CHARGE_CATS.map(([id, nm]) => `<button class="chip${ui.cat === id ? ' on' : ''}" data-a="cat" data-v="${id}">${nm}</button>`).join('')}</div>
-      <div class="row search-row"><input class="search" type="search" placeholder="Rechercher un meuble…" value="${esc(ui.q)}" data-a="q">
-        <button class="btn" data-a="import" title="Ajouter vos propres meubles à partir de fichiers SVG (calques corps, langue, armes, details)">＋ Importer SVG</button></div>
+      <div class="row search-row"><input class="search" type="search" placeholder="Rechercher un meuble…" value="${esc(ui.q)}" data-a="q"></div>
       ${H.CHARGE_ERRORS.length ? `<div class="warn">Fichiers ignorés : ${esc(H.CHARGE_ERRORS.join(' ; '))}</div>` : ''}
       ${list.length ? cards(list, null, 'addC', tCharge, 'small charges') : '<div class="empty">Aucun meuble ne correspond.</div>'}</div>`;
     return h;
@@ -702,7 +699,6 @@
       case 'cvar': charge(ui.selC).variant = v; break;
       case 'cattr': charge(ui.selC)[k] = v; break;
       case 'cskin': charge(ui.selC).peau = v; break;
-      case 'import': $('#import-file').click(); return;
       case 'cn': charge(ui.selC).n = +v; break;
       case 'corn': charge(ui.selC).orn = +v; break;
       case 'corient': charge(ui.selC).rot = +v; break;
@@ -822,37 +818,18 @@
   }
   function copyLink() {
     const url = location.href.split('#')[0] + '#s=' + btoa(unescape(encodeURIComponent(JSON.stringify(S))));
-    history.replaceState(null, '', url);
-    (navigator.clipboard ? navigator.clipboard.writeText(url) : Promise.reject()).then(() => toast('Lien copié dans le presse-papiers'), () => toast('Lien placé dans la barre d\'adresse'));
+    /* presse-papiers indisponible : le lien va dans la barre d'adresse (il en sera retiré à la prochaine modification) */
+    (navigator.clipboard ? navigator.clipboard.writeText(url) : Promise.reject()).then(() => toast('Lien copié dans le presse-papiers'),
+      () => { history.replaceState(null, '', url); toast('Lien placé dans la barre d\'adresse'); });
   }
 
   /* ---------- Démarrage ---------- */
-  /* Meubles importés par l'utilisateur, conservés dans le navigateur */
-  const IMP_KEY = 'blasons.meubles-importes';
-  const loadImported = () => { try { return JSON.parse(localStorage.getItem(IMP_KEY) || '{}'); } catch (e) { return {}; } };
-  function onImport(e) {
-    const files = [...e.target.files];
-    e.target.value = '';
-    const store = loadImported();
-    let ok = 0, last = null;
-    Promise.all(files.map(f => f.text().then(txt => {
-      const ch = H.importSVG(f.name, txt);
-      if (ch) { ok++; last = ch; store[f.name] = txt; }
-    }))).then(() => {
-      try { localStorage.setItem(IMP_KEY, JSON.stringify(store)); } catch (err) { toast('Stockage du navigateur plein : meuble utilisable mais non conservé'); }
-      Object.keys(cache).forEach(k => delete cache[k]);
-      if (last) { ui.cat = last.cat; ui.q = ''; }
-      toast(ok ? `${ok} meuble(s) importé(s)` : 'Aucun fichier SVG valide');
-      renderAll();
-    });
-  }
-
   function init() {
     $('#fur-defs').innerHTML = H.FUR_DEFS;
-    H.loadCharges(loadImported());
+    H.loadCharges();
     if (!H.CHARGES.length) document.body.insertAdjacentHTML('afterbegin', '<div class="warn" style="margin:8px">Aucun meuble chargé : lancez <b>assembler-meubles.bat</b> pour générer js/meubles-bundle.js à partir du dossier « meubles ».</div>');
-    $('#import-file').addEventListener('change', onImport);
     S = sanitize(load());
+    save();   /* un blason reçu par lien devient le blason en cours */
     hist = [JSON.stringify(S)]; hi = 0;
     if (S.field.pieces[0]) ui.selP = S.field.pieces[0].id;
     if (S.field.charges[0]) ui.selC = S.field.charges[0].id;
@@ -879,10 +856,6 @@
       if (k === 'z' && !e.shiftKey) { e.preventDefault(); jump(-1); }
       else if (k === 'y' || (k === 'z' && e.shiftKey)) { e.preventDefault(); jump(1); }
     });
-    const q = new URLSearchParams(location.search);
-    if (q.get('tab')) ui.tab = q.get('tab');
-    if (q.get('path')) ui.path = q.get('path').split(',');
-    if (q.get('cat')) ui.cat = q.get('cat');
     renderAll();
   }
   /* accès pour les autres pages (galerie, blasonnement) */

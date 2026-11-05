@@ -1,5 +1,4 @@
-/* Meubles : lecture des fichiers SVG du dossier « meubles » (assemblés dans js/meubles-bundle.js)
-   ou importés depuis l'interface.
+/* Meubles : lecture des fichiers SVG du dossier « meubles » (assemblés dans js/meubles-bundle.js).
 
    Format d'un fichier : viewBox quelconque (ramené à 100×100), calques nommés par id ou par
    nom de calque Inkscape :
@@ -118,7 +117,7 @@
   H.CHARGES = [];
   H.CMAP = {};
   H.CHARGE_ERRORS = [];
-  function register(fileName, text, imported) {
+  function register(fileName, text) {
     let cp;
     try { cp = H.compileSVG(text); } catch (e) { H.CHARGE_ERRORS.push(fileName + ' : ' + e.message); return null; }
     const m = cp.meta, base = fileName.replace(/\.svg$/i, '');
@@ -127,9 +126,9 @@
     if (!ch) {
       const sg = m.singulier || (m.nom || id).toLowerCase();
       ch = {
-        id, name: m.nom || id, cat: m.categorie || (imported ? 'importes' : 'divers'), sg, pl: m.pluriel || sg + 's', g: m.genre === 'f' ? 'f' : 'm',
+        id, name: m.nom || id, cat: m.categorie || 'divers', sg, pl: m.pluriel || sg + 's', g: m.genre === 'f' ? 'f' : 'm',
         ordre: m.ordre !== undefined ? +m.ordre : 9999, alt: m['couleur-singulier'] ? { sg: m['couleur-singulier'], pl: m['couleur-pluriel'] || m['couleur-singulier'] + 's' } : null,
-        variants: [], imported: !!imported
+        variants: []
       };
       H.CMAP[id] = ch; H.CHARGES.push(ch);
     }
@@ -172,19 +171,13 @@
   };
   function sortCatalogue() {
     const order = H.CHARGE_CATS.map(c => c[0]);
-    H.CHARGES.forEach(c => { if (!order.includes(c.cat)) { H.CHARGE_CATS.push([c.cat, c.cat === 'importes' ? 'Importés' : c.cat.charAt(0).toUpperCase() + c.cat.slice(1)]); order.push(c.cat); } });
+    H.CHARGES.forEach(c => { if (!order.includes(c.cat)) { H.CHARGE_CATS.push([c.cat, c.cat.charAt(0).toUpperCase() + c.cat.slice(1)]); order.push(c.cat); } });
     /* ordre alphabétique (les accents ne comptent pas : « Écureuil » se range avec les E) */
     H.CHARGES.sort((a, b) => a.name.localeCompare(b.name, 'fr', { sensitivity: 'base' }));
   }
-  H.loadCharges = function (imported) {
-    Object.keys(H.SVG_FILES || {}).forEach(f => register(f, H.SVG_FILES[f], false));
-    Object.keys(imported || {}).forEach(f => register(f, imported[f], true));
+  H.loadCharges = function () {
+    Object.keys(H.SVG_FILES || {}).forEach(f => register(f, H.SVG_FILES[f]));
     sortCatalogue();
-  };
-  H.importSVG = function (fileName, text) {
-    const ch = register(fileName, text, true);
-    if (ch) sortCatalogue();
-    return ch;
   };
   H.variantOf = c => {
     const ch = H.CMAP[c.type];

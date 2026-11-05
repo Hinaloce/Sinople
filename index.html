@@ -39,9 +39,10 @@
         <summary>Ce que l'application comprend</summary>
         <ul>
           <li><b>Le champ</b> : un émail (« d'azur », « d'hermine »…) ou une partition suivie de ses émaux (« parti d'or et de sable », « tiercé en fasce d'or, de gueules et d'azur », « écartelé d'argent et de sinople »), avec son trait (« coupé ondé… »).</li>
-          <li><b>Les pièces</b> : « à la fasce d'argent », « au chef d'azur », « à trois pals de gueules », « à la bordure engrêlée d'or »…</li>
-          <li><b>Les meubles</b> : « à un lion d'or », « à trois étoiles d'argent, 2 et 1 », « à deux léopards d'or, l'un sur l'autre », « semé de fleurs de lis d'or », avec leur position (« passant », « rampant ») et leurs attributs (« armé et lampassé de gueules »).</li>
-          <li><b>Les liaisons</b> : « chargé de trois coquilles d'or » (sur la pièce qui précède), « accompagné de… ».</li>
+          <li><b>Les parties</b> : nommées (« écartelé : aux 1 et 4 d'azur, aux 2 et 3 d'or ») ou composées, séparées par un point-virgule (« écartelé : au 1 d'azur à trois fleurs de lis d'or ; au 2 de gueules à la croix d'argent… »).</li>
+          <li><b>Les pièces</b> : « à la fasce d'argent », « au chef d'azur », « à trois pals de gueules », « à la bordure engrêlée d'or », « à la bordure componée d'argent et de gueules »…</li>
+          <li><b>Les meubles</b> : « à un lion d'or », « à trois étoiles d'argent, 2 et 1 », « à deux léopards d'or, l'un sur l'autre », « semé de fleurs de lis d'or », « une clef posée en bande », avec leur position (« passant », « rampant ») et leurs attributs (« armé et lampassé de gueules, couronné d'or »).</li>
+          <li><b>Les liaisons</b> : « chargé de trois coquilles d'or » (sur la pièce ou le meuble qui précède), « accompagné de… », « surmonté de… », « cantonné de… », « accosté de… », et « du même » pour répéter l'émail qui précède.</li>
         </ul>
       </details>
     </section>
@@ -96,7 +97,6 @@
         <button class="btn" id="b-link">🔗 Copier le lien</button>
       </div>
       <div class="toast" id="toast" role="status"></div>
-      <input type="file" id="import-file" accept=".svg,image/svg+xml" multiple hidden>
     </section>
 
     <aside class="panel side" aria-label="Éléments ajoutés">
@@ -114,6 +114,7 @@
   <script src="js/rules.js"></script>
   <script src="js/app.js"></script>
   <script src="js/parse.js"></script>
+  <script src="js/galerie.js"></script>
   <script src="js/pages.js"></script>
 </body>
 </html>

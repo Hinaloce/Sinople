@@ -279,7 +279,6 @@
     }
     return c;
   }
-  H.pip = pip;
 
   /* ---------- Partitions ---------- */
   const halfPlane = (c, d, n) => {
@@ -575,7 +574,6 @@
     pts.forEach((p, i) => { const d = Math.abs(p[0] - B.cx) + (p[1] < B.cy ? 0 : 1000) + (p[1] - B.t) * 0.01; if (d < bd) { bd = d; bi = i; } });
     return pts.slice(bi).concat(pts.slice(0, bi));
   }
-  H.ringFromTop = fromTop;
 
   /* ls de la pièce : celle du champ qui la porte, réduite pour l'écusson (petit écu dans l'écu) */
   /* décalage manuel d'une pièce : toutes ses formes, ses axes et sa zone se déplacent ensemble */
