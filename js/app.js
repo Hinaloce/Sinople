@@ -39,13 +39,14 @@
   /* [min, max, pas] ; motif du trait : pas de 0,05, le plus petit qui change toujours le dessin
      (un bord porte un nombre entier de motifs, seule leur hauteur varie entre deux changements de nombre) */
   /* [min, max, pas, valeur par défaut (1 si absente)] ; off : décalage d'une pièce ou d'un meuble, en unités de l'écu (200 de large) */
-  const RANGE = { lz: [0.2, 4, 0.05], fs: [0.2, 4], sp: [0.3, 2.5], th: [0.3, 2], scale: [0.2, 3], ow: [0, 4], off: [-60, 60, 0.5, 0], rot: [-90, 90, 1, 0] };
+  const RANGE = { lz: [0.2, 4, 0.05], fs: [0.2, 4], sp: [0.1, 2.5], spSeme: [0.3, 2.5], th: [0.3, 2], scale: [0.2, 4], ow: [0, 4], off: [-60, 60, 0.5, 0], rot: [-90, 90, 1, 0] };
   const defOf = key => (RANGE[key][3] === undefined ? 1 : RANGE[key][3]);
   const num = (v, key) => (+v >= RANGE[key][0] && +v <= RANGE[key][1] ? +v : defOf(key));
   /* affichage de la valeur d'un curseur : ×1.20 pour un facteur, +3.5 pour un décalage */
   const fmtTune = (v, key) => (key === 'rot' ? (v > 0 ? '+' : '') + Math.round(v) + '°'
     : defOf(key) === 0 ? (v > 0 ? '+' : '') + v.toFixed(1) : '×' + v.toFixed(2));
-  function sanitizeField(f) {
+  /* nested : champ d'une sous-composition (partie composée, intérieur d'une pièce ou d'un meuble) */
+  function sanitizeField(f, nested) {
     const d = H.newField('azur');
     if (!f || typeof f !== 'object') return d;
     const F = {
@@ -55,15 +56,16 @@
       lz: num(f.lz, 'lz'), fs: num(f.fs, 'fs'), lc: !!f.lc, fc: !!f.fc,
       subs: [], pieces: [], charges: []
     };
-    (f.subs || []).forEach((s, i) => { if (s && i < 4) F.subs[i] = sanitizeField(s); });
+    (f.subs || []).forEach((s, i) => { if (s && i < 4) F.subs[i] = sanitizeField(s, true); });
     F.pieces = (f.pieces || []).filter(p => p && H.PCMAP[p.type]).map(p => {
       const q = { id: p.id || rid('p'), type: p.type, line: H.LMAP[p.line] ? p.line : 'droite', t: okT(p.t) || 'or', th: num(p.th, 'th'), lz: num(p.lz, 'lz'), fs: num(p.fs, 'fs'), lc: !!p.lc, fc: !!p.fc, dx: num(p.dx, 'off'), dy: num(p.dy, 'off') };
       if (H.MULTI_PIECES.includes(p.type) && [2, 3, 4].includes(+p.n)) q.n = +p.n;
       if (p.type === 'chevron' && p.inv) q.inv = true;
       /* sous le tout (dessinée avant les autres) ou brochant (par-dessus les meubles) : l'un ou l'autre */
-      if (p.sous) q.sous = true; else if (p.broch) q.broch = true;
+      /* (seulement dans le champ principal : dans une sous-composition, ces plans n'ont guère de sens) */
+      if (!nested) { if (p.sous) q.sous = true; else if (p.broch) q.broch = true; }
       if (p.ual) q.ual = true;
-      if (p.inner && H.PCMAP[p.type].box) q.inner = sanitizeField(p.inner);
+      if (p.inner && H.PCMAP[p.type].box) q.inner = sanitizeField(p.inner, true);
       /* bordure componée : second émail des compons */
       if (p.type === 'bordure' && okT(p.comp) && okT(p.comp) !== q.t) q.comp = okT(p.comp);
       return q;
@@ -74,7 +76,9 @@
       variant: H.CMAP[c.type].variants.some(v => v.id === c.variant) ? c.variant : H.CMAP[c.type].variants[0].id,
       langue: okT(c.langue), armes: okT(c.armes), peau: H.SKIN_MAP[c.peau] ? c.peau : null, cheveux: okT(c.cheveux), aureole: okT(c.aureole),
       extras: cleanExtras(c.extras), orn: +c.orn >= 4 && +c.orn <= 24 ? Math.round(+c.orn) : undefined, fs: num(c.fs, 'fs'), fc: !!c.fc, sp: num(c.sp, 'sp'), ow: c.ow === undefined ? 1 : num(c.ow, 'ow'), dx: num(c.dx, 'off'), dy: num(c.dy, 'off'), mv: H.MOUVANTS[c.mv] || c.mv === 'non' ? c.mv : undefined,
-      ual: !!c.ual && !c.uet || undefined, uet: !!c.uet || undefined
+      ual: !!c.ual && !c.uet || undefined, uet: !!c.uet || undefined,
+      /* intérieur composé du meuble (partition, pièces, meubles posés sur lui) */
+      inner: c.inner ? sanitizeField(c.inner, true) : undefined
     }));
     return F;
   }
@@ -188,7 +192,8 @@
   const chargeName = c => {
     const n = H.chargeCount(c), d = H.CMAP[c.type];
     const alt = d.alt && H.cls(c.t) !== 'metal' ? d.alt : d;
-    return `${n > 1 ? n + ' ' + alt.pl : cap(alt.sg)} ${H.tDe(c.t)}${n === 0 ? ' (semé)' : ''}`;
+    const t = c.inner ? (c.inner.part === 'plein' ? H.tDe(c.inner.t[0]) + (c.inner.pieces.length || c.inner.charges.length ? ', chargé' + (d.g === 'f' ? 'e' : '') : '') : '— composé') : H.tDe(c.t);
+    return `${n > 1 ? n + ' ' + alt.pl : cap(alt.sg)} ${t}${n === 0 ? ' (semé)' : ''}`;
   };
 
   /* ---------- Panneaux ---------- */
@@ -284,6 +289,7 @@
     const F = cur(), P = H.PMAP[F.part], groups = [];
     if (P.compose) F.subs.forEach((s, i) => { if (s && i < P.slots && s[kind].length) groups.push({ label: P.labels[i], f: s, a: 'openS', v: i }); });
     F.pieces.forEach(p => { if (p.inner && p.inner[kind].length) groups.push({ label: H.PCMAP[p.type].name, f: p.inner, a: 'openP', v: p.id }); });
+    F.charges.forEach(c => { if (c.inner && c.inner[kind].length) groups.push({ label: H.CMAP[c.type].name, f: c.inner, a: 'openP', v: c.id }); });
     if (!groups.length) return '';
     return `<div class="sec nested"><h3>Dans les parties composées</h3>` + groups.map(g =>
       `<div class="nest-grp"><div class="slot-name"><span>${esc(g.label)}</span><button class="mini accent" data-a="${g.a}" data-v="${g.v}">Ouvrir ▸</button></div>
@@ -326,7 +332,8 @@
       if (H.twoTone(F) && !p.inner) h += `<div class="row"><label class="check"><input type="checkbox" data-a="ctr" data-v="p:ual" data-k="${p.id}" ${p.ual ? 'checked' : ''}> De l'un en l'autre <em>(chaque moitié de l'émail de l'autre partie)</em></label></div>`;
       if (p.type === 'chevron') h += `<div class="row"><label class="check"><input type="checkbox" data-a="ctr" data-v="p:inv" data-k="${p.id}" ${p.inv ? 'checked' : ''}> Renversé <em>(la pointe en bas)</em></label></div>`;
       /* plan de la pièce : au milieu, sous le tout (avant les autres), ou brochant (par-dessus les meubles) */
-      if (!['chef', 'champagne', 'bordure', 'franc-quartier'].includes(p.type)) h += `<div class="sec"><h3>Plan</h3><div class="row">
+      /* pas dans une sous-composition (partie composée, intérieur d'une pièce ou d'un meuble) */
+      if (!ui.path.length && !['chef', 'champagne', 'bordure', 'franc-quartier'].includes(p.type)) h += `<div class="sec"><h3>Plan</h3><div class="row">
         <label class="check"><input type="checkbox" data-a="ctr" data-v="p:broch" data-k="${p.id}" ${p.broch ? 'checked' : ''}> Brochant <em>(sur les meubles)</em></label>
         <label class="check"><input type="checkbox" data-a="ctr" data-v="p:sous" data-k="${p.id}" ${p.sous ? 'checked' : ''}> Sous le tout <em>(sous les autres pièces)</em></label></div></div>`;
       if (p.type !== 'franc-quartier') h += slider(p.type === 'ecusson' ? 'Taille' : 'Épaisseur', 'th', p.id, p.th, 'th');
@@ -367,8 +374,12 @@
       const hosts = F.pieces.filter(p => !p.inner);
       const g = d.g === 'f' ? 'e' : '';
       h += `<div class="editor"><h4>${cap(d.sg)}</h4>`;
+      /* intérieur composé : partition du meuble, pièces et meubles posés sur lui (une cotice sur un lion…) */
+      h += c.inner
+        ? `<div class="row"><button class="btn btn-accent" data-a="openP" data-v="${c.id}">Ouvrir l'intérieur ▸</button><button class="btn" data-a="uncomposeC" data-v="${c.id}">Retirer la composition</button></div>`
+        : `<div class="row"><button class="btn" data-a="composeC" data-v="${c.id}">Composer ▸</button><span class="hint" style="margin:0">partition du meuble, pièces et meubles sur lui</span></div>`;
       if (d.variants.length > 1) h += `<div class="sec"><h3>Position</h3>${cards(d.variants.map(x => ({ id: x.id, name: x.name })), v.id, 'cvar', id => tVariant(d.id, id), 'small charges')}</div>`;
-      h += `<div class="sec"><h3>Émail</h3>${swatches('ctinct', c.t, `data-k="${c.id}"`, ui.strict ? (id => H.conflicts(id, U)) : null)}</div>`;
+      if (!c.inner || c.inner.part === 'plein') h += `<div class="sec"><h3>Émail</h3>${swatches('ctinct', c.t, `data-k="${c.id}"`, ui.strict ? (id => H.conflicts(id, U)) : null)}</div>`;
       if (v.cp.has.armes) h += `<div class="sec attr"><h3><label class="check"><input type="checkbox" data-a="carmes" ${c.armes ? 'checked' : ''}> ${esc(v.armesNom)} d'un autre émail <em>(${esc(v.armesTerme)}${g})</em></label></h3>
         ${c.armes ? swatches('cattr', c.armes, 'data-k="armes"') : ''}</div>`;
       if (v.cp.has.langue) h += `<div class="sec attr"><h3><label class="check"><input type="checkbox" data-a="clangue" ${c.langue ? 'checked' : ''}> Langue <em>(${esc(v.langueTerme)}${g})</em></label></h3>
@@ -395,12 +406,13 @@
       /* orle : nombre de meubles au choix */
       if (!onPiece && H.ARR[c.arr].orle) h += `<div class="sec"><h3>Nombre dans l'orle</h3><div class="seg">${[6, 8, 10, 12, 14, 16, 20].map(n => `<button class="${H.chargeCount(c) === n ? 'on' : ''}" data-a="corn" data-v="${n}">${n}</button>`).join('')}</div></div>`;
       const ring = onPiece && hosts.some(p => p.id === c.on && (p.type === 'bordure' || p.type === 'orle'));
-      if (H.chargeCount(c) !== 1 && !ring && !(!onPiece && H.ARR[c.arr].orle)) h += slider(H.chargeCount(c) === 0 ? 'Espacement du semé' : 'Espacement', 'csp', c.id, c.sp, 'sp');
+      if (H.chargeCount(c) !== 1 && !ring && !(!onPiece && H.ARR[c.arr].orle)) /* semé : pas en dessous de 0,30 (le nombre de meubles grandit comme l'inverse du carré de l'espacement) */
+      h += H.chargeCount(c) === 0 ? slider('Espacement du semé', 'csp', c.id, Math.max(0.3, c.sp || 1), 'spSeme') : slider('Espacement', 'csp', c.id, c.sp, 'sp');
       if ([c.t, c.armes, c.langue].some(isFur)) h += slider('Taille de la fourrure', 'cfs', c.id, c.fs, 'fs') + centerBox('c', c.id, 'fc', c.fc);
       h += slider('Taille', 'cscale', c.id, c.scale, 'scale');
       h += slider('Épaisseur du contour', 'cow', c.id, c.ow, 'ow');
       /* sur un champ parti, coupé, tranché ou taillé de deux émaux : la figure prend l'émail de l'autre partie */
-      if (!onPiece && H.twoTone(F)) h += `<div class="sec"><h3>Sur le trait</h3><div class="row">
+      if (!onPiece && H.twoTone(F) && !c.inner) h += `<div class="sec"><h3>Sur le trait</h3><div class="row">
         <label class="check"><input type="checkbox" data-a="ctr" data-v="c:ual" data-k="${c.id}" ${c.ual ? 'checked' : ''}> De l'un en l'autre <em>(à cheval sur le trait)</em></label>
         <label class="check"><input type="checkbox" data-a="ctr" data-v="c:uet" data-k="${c.id}" ${c.uet ? 'checked' : ''}> De l'un et de l'autre <em>(2 figures de part et d'autre)</em></label></div></div>`;
       /* mouvant : la figure sort d'un bord ; le choix par défaut est celui du meuble (haie, pont, arc-en-ciel : les flancs) */
@@ -683,7 +695,9 @@
       case 'addC': { const c = newCharge(v); F.charges.push(c); ui.selC = c.id; ui.side = 'meubles'; strictFix(c.id); break; }
       case 'selC': ui.selC = v; renderSide(); return;
       case 'delC': F.charges = F.charges.filter(c => c.id !== v); if (ui.selC === v) ui.selC = null; break;
-      case 'ctinct': charge(k).t = v; break;
+      case 'ctinct': { const c = charge(k); c.t = v; if (c.inner && c.inner.part === 'plein') c.inner.t[0] = v; break; }
+      case 'composeC': { const c = charge(v); c.inner = H.newField(c.t); delete c.ual; delete c.uet; enter(c.id); ui.tab = 'pieces'; break; }
+      case 'uncomposeC': { const c = charge(v); if (c.inner) c.t = c.inner.t[0] || c.t; delete c.inner; break; }
       case 'carr': charge(ui.selC).arr = v; break;
       case 'cvar': charge(ui.selC).variant = v; break;
       case 'cattr': charge(ui.selC)[k] = v; break;

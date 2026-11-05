@@ -19,6 +19,9 @@
       const pc = H.pieceCtx(F, ctx, p);
       if (pc) H.eachField(p.inner, pc, fn, (label ? label + ' › ' : '') + H.PCMAP[p.type].name);
     });
+    F.charges.forEach(c => {
+      if (c.inner) H.eachField(c.inner, H.chargeCtx(F, ctx, c), fn, (label ? label + ' › ' : '') + H.CMAP[c.type].name);
+    });
   };
   /* Trouve le champ et l'objet (pièce ou meuble) d'identifiant id */
   H.findItem = function (S, id) {
@@ -77,6 +80,8 @@
         if (H.conflicts(t[i], [t[j]])) warnings.push({ msg: `${pre}champ ${H.TMAP[t[i]].name.toLowerCase()} contre ${H.TMAP[t[j]].name.toLowerCase()} — ${H.cls(t[i]) === 'metal' ? 'métal contre métal' : 'couleur contre couleur'}.` });
       });
       F.pieces.forEach((p, i) => {
+        /* pièce traversant un meuble : elle broche, la règle des émaux ne s'y applique pas */
+        if (ctx.local && H.THROUGH.includes(p.type)) return;
         const pts = H.anchors(H.pieceGeom(p, ctx.B), 3).pts;
         const U = uniq(pts.map(([x, y]) => tinctAt(F, ctx, x, y, i)));
         under[p.id] = U;
@@ -87,7 +92,8 @@
         const pos = H.chargePos(F, ctx.B, c);
         const U = pos.onPiece ? uniq([H.pieceT(pos.onPiece)]) : uniq(pos.pts.slice(0, 14).map(([x, y]) => tinctAt(F, ctx, x, y, F.pieces.length)));
         under[c.id] = U;
-        if (!((c.ual || c.uet) && H.twoTone(F)) && H.conflicts(c.t, U)) warnings.push({ id: c.id, msg: `${pre}${H.CMAP[c.type].sg} ${H.tDe(c.t)} sur fond ${H.tDe(U[0])} — ${ruleTxt(c.t)}.` });
+        const ct = H.chargeT(c);
+        if (!((c.ual || c.uet) && H.twoTone(F)) && H.conflicts(ct, U)) warnings.push({ id: c.id, msg: `${pre}${H.CMAP[c.type].sg} ${H.tDe(ct)} sur fond ${H.tDe(U[0])} — ${ruleTxt(ct)}.` });
       });
     });
     return { warnings, under };
@@ -100,12 +106,12 @@
     if (!f) return;
     const U = a.under[id] || [], it = f.item;
     if ((it.ual || it.uet) && H.twoTone(f.F)) return;   /* de l'un en l'autre : l'émail suit celui des parties */
-    const cur = f.kind === 'piece' ? H.pieceT(it) : it.t;
+    const cur = f.kind === 'piece' ? H.pieceT(it) : H.chargeT(it);
     if (!H.conflicts(cur, U)) return;
     const nt = ORDER.find(o => !H.conflicts(o, U));
     if (!nt) return;
     it.t = nt;
-    if (f.kind === 'piece' && it.inner && it.inner.part === 'plein') it.inner.t[0] = nt;
+    if (it.inner && it.inner.part === 'plein') it.inner.t[0] = nt;
   };
   /* Corrige tout le blason (action explicite de l'utilisateur) */
   H.autofix = function (S) {
@@ -188,11 +194,23 @@
     const head = `${n > 1 ? alt.pl : alt.sg}${adj ? ' ' + adj : ''}${fl ? ' ' + fl : ''}`;
     /* « de l'un en l'autre » (une figure sur le trait) et « de l'un et de l'autre » (deux figures de part et d'autre) */
     const uet = E.two && c.uet && n > 1, ual = E.two && c.ual && !uet;
-    const tinct = uet || ual ? (E.last = null, uet ? "de l'un et de l'autre" : "de l'un en l'autre") : em(c.t);
+    /* intérieur composé : « un lion parti d'or et d'azur », « un lion d'or chargé d'une cotice de gueules » */
+    /* les pièces traversantes ne « chargent » pas le meuble : elles sont dites à part, « brochant » (throughText) */
+    const inner = c.inner && H.splitInner(c.inner).inside;
+    let tinct, items = '';
+    if (inner) {
+      if (inner.part === 'plein') { tinct = em(inner.t[0]); items = inField(inner, inner.t[0], itemsDe); }
+      /* la partition s'accorde avec le meuble : « une aigle partie », « trois lions coupés » */
+      else { tinct = low(fieldText(inner)).replace(/^[^\s,:]+/, w => agree(w)); E.last = null; items = inField(c.inner, null, () => itemsDe(inner)); }
+    } else tinct = uet || ual ? (E.last = null, uet ? "de l'un et de l'autre" : "de l'un en l'autre") : em(c.t);
     const pose = orient ? ` ${agree('posé')} en ${orient}` : '';
     /* mouvant : dit seulement si le bord est choisi et n'est pas celui que le meuble a d'office (pont, haie, arc-en-ciel) */
     const mv = c.mv && c.mv !== 'non' && c.mv !== d.mouvant && H.MOUVANTS[c.mv] ? ` ${agree('mouvant')} ${H.MOUVANTS[c.mv]}` : '';
-    return `${head} ${tinct}${pose}${attrText(c, v, d.g, n)}${mv}`;
+    const attrs = attrText(c, v, d.g, n);
+    /* plusieurs meubles : « chargés chacun d'une cotice » */
+    const charged = items ? `${attrs || inner.part !== 'plein' ? ',' : ''} ${agree('chargé')}${n > 1 ? (d.g === 'f' ? ' chacune' : ' chacun') : ''} ${items}` : '';
+    if (items) E.last = null;
+    return `${head} ${tinct}${pose}${attrs}${charged}${mv}`;
   }
   /* mode : « none » (la position est déjà dite par « surmonté », « adextré »…), « inline » (« une étoile en pointe »,
      sans virgule) ; par défaut : « , en chef », « , 2 et 1 » */
@@ -211,18 +229,26 @@
     if (!a.txt || a.seme) return '';
     return sep + (H.CMAP[c.type].g === 'f' ? a.txt.replace('rangés', 'rangées') : a.txt);
   }
+  /* pièces traversant un meuble : « …, à la bande de gueules brochant sur le tout » (sur chacun, s'ils sont plusieurs) */
+  const throughText = (c, n) => {
+    if (!c.inner) return '';
+    const th = H.splitInner(c.inner).through;
+    if (!th.length) return '';
+    E.last = null;
+    return th.map(p => ', ' + inField(c.inner, null, () => pieceText(c.inner, p, 'a')) + (n > 1 ? ' brochant sur chacun' : ' brochant sur le tout')).join('');
+  };
   const chargeA = c => {
     const n = H.chargeCount(c), d = H.CMAP[c.type];
     if (n === 0) { const core = chargeCore(c, 2); return (/^[aeéèêiîoôuhy]/i.test(core) ? "semé d'" : 'semé de ') + core; }
     const core = chargeCore(c, n);
     /* le lion et l'aigle seuls prennent l'article défini : « au lion », « à l'aigle » */
-    if (n === 1 && d.defini) return `${/^[aeiouyéèêh]/i.test(core) ? "à l'" : d.g === 'f' ? 'à la ' : 'au '}${core}${chargeArr(c)}`;
-    return `à ${numWord(n, d.g)} ${core}${chargeArr(c)}`;
+    if (n === 1 && d.defini) return `${/^[aeiouyéèêh]/i.test(core) ? "à l'" : d.g === 'f' ? 'à la ' : 'au '}${core}${chargeArr(c)}${throughText(c, n)}`;
+    return `à ${numWord(n, d.g)} ${core}${chargeArr(c)}${throughText(c, n)}`;
   };
   const chargeDe = (c, arrMode) => {
     const n = H.chargeCount(c), d = H.CMAP[c.type];
     if (n === 0) return `de ${chargeCore(c, 2)} sans nombre`;
-    return `${deArt(numWord(n, d.g))} ${chargeCore(c, n)}${chargeArr(c, arrMode)}`;
+    return `${deArt(numWord(n, d.g))} ${chargeCore(c, n)}${chargeArr(c, arrMode)}${throughText(c, n)}`;
   };
 
   /* ---------- Ordre et accompagnement des figures ---------- */

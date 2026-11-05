@@ -802,7 +802,7 @@
     }
     const a = H.ARR[c.arr] || H.ARR['1'];
     if (a.seme) {
-      const S0 = a.s * B.u * sc, sx = S0 * 1.8 * sp, sy = S0 * 1.7 * sp, poly = B.ol(1.08), pts = [];
+      const sps = Math.max(0.3, sp), S0 = a.s * B.u * sc, sx = S0 * 1.8 * sps, sy = S0 * 1.7 * sps, poly = B.ol(1.08), pts = [];
       const R = B.real;
       let row = 0;
       for (let y = R.t + sy * 0.45; y < R.b + sy * 0.3; y += sy, row++) {
@@ -932,7 +932,51 @@
     });
   };
 
-  /* Chemin de navigation : ['s1', 'pXXXX', …] → { F, ctx, labels } */
+  /* Intérieur d'un meuble : champ dessiné dans la grille 100×100 du dessin (il suit le meuble : taille, rotation, contourné),
+     sur la boîte de la silhouette. Le contexte est « local » : ses coordonnées ne sont pas celles de l'écu. */
+  H.chargeCtx = function (F, ctx, c) {
+    const key = 'C' + c.type + '~' + c.variant;
+    return memo(key, () => {
+      const b = H.contentBox(c) || [10, 10, 90, 90];
+      const B = { shape: ctx.B.shape, l: b[0], t: b[1], r: b[2], b: b[3], cx: (b[0] + b[2]) / 2, cy: (b[1] + b[3]) / 2, w: b[2] - b[0], h: b[3] - b[1] };
+      B.hd = Math.min(B.h, B.w * 1.15);
+      B.u = Math.min(B.w, B.h / 1.26);
+      B.pc = [B.cx, B.cy];
+      B.real = { l: B.l, r: B.r, t: B.t, b: B.b };
+      B.area0 = ctx.B.area0;
+      /* les traits gardent à peu près la taille qu'ils ont sur l'écu entier, ramenée à la grille du meuble */
+      B.ls = Math.min(1, Math.max(0.2, Math.sqrt((B.w * B.h) / B.area0)));
+      B.ol = rectOl(B);
+      return { B, inside: (x, y) => x >= B.l && x <= B.r && y >= B.t && y <= B.b, chain: [{ d: '', local: true }], key, local: true };
+    });
+  };
+
+  /* Pièces posées sur un meuble : celles qui traversent (fasce, bande, croix…) sont centrées sur le meuble mais vont d'un bord
+     à l'autre de la zone qui le contient ; les autres (chef, bordure, canton…) restent dans la silhouette du meuble. */
+  H.THROUGH = ['fasce', 'pal', 'bande', 'barre', 'croix', 'sautoir', 'chevron', 'pairle'];
+  H.splitInner = function (inner) {
+    const through = inner.pieces.filter(p => H.THROUGH.includes(p.type)), ids = through.map(p => p.id);
+    const onThrough = inner.charges.filter(c => ids.includes(c.on));
+    const inside = Object.assign({}, inner, { pieces: inner.pieces.filter(p => !through.includes(p)), charges: inner.charges.filter(c => !onThrough.includes(c)) });
+    return { through, onThrough, inside };
+  };
+  /* Contexte des pièces traversantes d'un exemplaire du meuble (centre x, y, taille size) : boîte du dessin, en coordonnées de l'écu */
+  H.throughCtx = function (ctx, c, x, y, size) {
+    const b = H.contentBox(c) || [10, 10, 90, 90], k = size / 100, P = ctx.B;
+    const l = x + (b[0] - 50) * k, r = x + (b[2] - 50) * k, t = y + (b[1] - 50) * k, bb = y + (b[3] - 50) * k;
+    const B = { shape: P.shape, l, r, t, b: bb, cx: x, cy: y, w: r - l, h: bb - t };
+    B.hd = Math.min(B.h, B.w * 1.15);
+    B.u = Math.min(B.w, B.h / 1.26);
+    B.pc = [x, y];
+    B.real = { l, r, t, b: bb };
+    B.area0 = P.area0;
+    B.ls = Math.min(1, Math.max(0.2, Math.sqrt((B.w * B.h) / B.area0)));
+    B.ol = rectOl(B);
+    const key = ctx.key + '/t' + c.type + c.variant + '@' + [x, y, size].map(v => Math.round(v * 10)).join(',');
+    return { B, inside: ctx.inside, chain: ctx.chain, key };
+  };
+
+  /* Chemin de navigation : ['s1', 'pXXXX', 'cXXXX', …] → { F, ctx, labels } */
   H.walk = function (S, path) {
     let F = S.field, ctx = H.rootCtx(S.shape);
     const crumbs = [{ label: 'Écu entier', depth: 0 }];
@@ -943,10 +987,14 @@
         const k = +step.slice(1), P = H.PMAP[F.part];
         if (P.compose && k < P.slots && F.subs && F.subs[k]) { nF = F.subs[k]; nctx = H.slotCtx(F, ctx, k); label = P.labels[k]; }
       } else {
-        const p = F.pieces.find(x => x.id === step);
+        const p = F.pieces.find(x => x.id === step), c = !p && F.charges.find(x => x.id === step);
         if (p && p.inner) { nF = p.inner; nctx = H.pieceCtx(F, ctx, p); label = H.PCMAP[p.type].name; }
+        else if (c && c.inner) { nF = c.inner; nctx = H.chargeCtx(F, ctx, c); label = H.CMAP[c.type].name; }
       }
       if (!nF || !nctx) break;
+      /* sous un meuble, les découpes sont en coordonnées du meuble : la mise en évidence s'arrête à lui */
+      if (ctx.local || ctx.chain.some(x => x.local)) nctx = Object.assign({}, nctx, { chain: ctx.chain });
+      else if (nctx.local) nctx = Object.assign({}, nctx, { chain: ctx.chain.concat([{ d: '', local: true }]) });
       F = nF; ctx = nctx; ok.push(step);
       crumbs.push({ label, depth: ok.length });
     }

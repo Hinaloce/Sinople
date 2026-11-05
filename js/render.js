@@ -13,11 +13,13 @@
 
   /* Émail effectif d'une pièce (une pièce composée n'a un émail unique que si son champ est plein) */
   H.pieceT = p => (p.inner ? (p.inner.part === 'plein' ? p.inner.t[0] : null) : p.t);
+  H.chargeT = c => (c.inner ? (c.inner.part === 'plein' ? c.inner.t[0] : null) : c.t);
 
   /* Fourrure d'un meuble, dans sa grille 100×100 : le motif suit la taille du meuble */
   const FUR_CHARGE = 0.55;
   /* fx : registre des filtres de contour du dessin en cours (un par épaisseur) */
-  function chargeSvg(c, x, y, size, fx) {
+  /* inner : intérieur composé du meuble, déjà dessiné dans la grille 100×100 du meuble */
+  function chargeSvg(c, x, y, size, fx, inner) {
     if (!H.CMAP[c.type]) return '';
     const k = size / 100;
     /* ow : réglage de l'épaisseur du contour (0 = sans contour) */
@@ -25,7 +27,9 @@
     const iw = Math.min(2, Math.max(0.3, 0.35 / k)) * ow;
     const t = H.TMAP[c.t];
     const fill = id => fx.fur(id, FUR_CHARGE * (c.fs || 1), c.fc ? [50, 50] : null);
-    const art = H.chargeArt(c, { f: fill(c.t), fill, k: H.INK, d: t ? t.det : '#333', iw, filter: iw >= 0.05 ? fx.get(Math.max(0.1, iw)) : null });
+    const o = { f: fill(c.t), fill, k: H.INK, d: t ? t.det : '#333', iw, filter: iw >= 0.05 ? fx.get(Math.max(0.1, iw)) : null };
+    if (inner) { o.inner = inner; o.mask = fx.mask(c, () => H.chargeArt(c, { mode: 'mask', f: '#fff', fill })); }
+    const art = H.chargeArt(c, o);
     const sx = (c.flip ? -1 : 1) * k, sy = (c.invert ? -1 : 1) * k;
     const rot = c.rot ? ` rotate(${c.rot})` : '';
     return `<g transform="translate(${r(x)} ${r(y)})${rot} scale(${r(sx, 4)} ${r(sy, 4)}) translate(-50 -50)">${art}</g>`;
@@ -35,6 +39,15 @@
     const fx = { defs: '', get(iw) {
       const key = (Math.round(iw * 10) / 10).toFixed(1);
       if (!map[key]) { map[key] = prefix + 'o' + key.replace('.', '_'); fx.defs += H.outlineFilter(map[key], key, H.INK); }
+      return map[key];
+    },
+    /* masque de la silhouette d'un meuble (intérieur composé), un par meuble et par réglage de ses parties */
+    mask(c, art) {
+      const key = 'm' + c.type + c.variant + [c.langue, c.armes, c.peau, c.cheveux, JSON.stringify(c.extras || {})].join('|');
+      if (!map[key]) {
+        map[key] = prefix + 'm' + Object.keys(map).length;
+        fx.defs += `<mask id="${map[key]}" maskUnits="userSpaceOnUse" x="-60" y="-60" width="220" height="220">${art()}</mask>`;
+      }
       return map[key];
     },
     /* fourrure à l'échelle s (motif propre à ce dessin) ; les autres émaux sont rendus tels quels */
@@ -103,7 +116,8 @@
       /* les fourrures du champ suivent la taille de la zone (écu entier, quartier, intérieur d'une pièce…) */
       /* le vair garde la taille de ses tires sur tout l'écu, même dans une partition (l'hermine suit la zone) */
       const fill = id => fx.fur(id, (H.isVair(id) ? 1 : B.ls || 1) * (F.fs || 1), F.fc ? [B.cx, B.cy] : null);
-      let g = `<rect x="-60" y="-60" width="320" height="400" fill="${fill(F.t[0])}"/>`;
+      /* bare : seulement les pièces et meubles (pièces traversant un meuble), sans fond */
+      let g = F.bare ? '' : `<rect x="-60" y="-60" width="320" height="400" fill="${fill(F.t[0])}"/>`;
       if (F.part !== 'plein') {
         for (const rg of H.fieldRegions(F.part, B, F.line, composed, F.lz, F.lc)) {
           const sub = subs[rg.slot];
@@ -123,7 +137,14 @@
       const two = H.twoTone(F), regs = () => H.fieldRegions(F.part, B, F.line, true, F.lz, F.lc);
       const drawCharge = c => {
         const pos = H.chargePos(F, B, c);
-        if (two && c.uet) {
+        /* intérieur composé : dessiné une fois dans la grille du meuble, repris pour chaque exemplaire ;
+           les pièces traversantes (et leurs meubles) sont centrées sur chaque exemplaire et vont jusqu'aux bords de la zone */
+        const cc = c.inner && H.chargeCtx(F, ctx, c), sp = cc && H.splitInner(c.inner), inner = cc ? field(sp.inside, cc) : null;
+        if (inner) for (const [x, y] of pos.pts) {
+          g += chargeSvg(c, x, y, pos.size, fx, inner);
+          if (sp.through.length) g += field({ bare: true, part: 'plein', t: [], subs: [], pieces: sp.through, charges: sp.onThrough }, H.throughCtx(ctx, c, x, y, pos.size));
+        }
+        else if (two && c.uet) {
           for (const [x, y] of pos.pts) g += chargeSvg(Object.assign({}, c, { t: F.t[1 - H.slotAt(F.part, B, x, y)] }), x, y, pos.size, fx);
         } else if (two && c.ual) {
           for (const rg of regs()) for (const [x, y] of pos.pts) g += `<g clip-path="url(#${clip(rg.d)})">${chargeSvg(Object.assign({}, c, { t: F.t[1 - rg.slot] }), x, y, pos.size, fx)}</g>`;
@@ -164,7 +185,8 @@
     let focus = '';
     if (opt.focus && opt.focus.length) {
       const w = H.walk(S, opt.focus);
-      const chain = w.ctx.chain;
+      /* intérieur d'un meuble : on met en évidence la zone qui contient le meuble */
+      const li = w.ctx.chain.findIndex(x => x.local), chain = li >= 0 ? w.ctx.chain.slice(0, li) : w.ctx.chain;
       if (chain.length > 1) {
         let open = '', close = '';
         for (let i = 1; i < chain.length - 1; i++) { open += `<g clip-path="url(#${clip(chain[i].d, chain[i].eo)})">`; close += '</g>'; }

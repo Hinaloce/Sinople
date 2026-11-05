@@ -200,8 +200,9 @@
     const fill = o.fill || H.fill;
     const L = c.langue && v.cp.has.langue ? fill(c.langue) : null;
     const A = c.armes && v.cp.has.armes ? fill(c.armes) : null;
-    /* traits intérieurs d'encre : couleur de contraste sur un meuble sombre, sinon ils disparaîtraient */
-    const K = ['sable', 'contre-hermine', 'contre-hermine-or', 'tanne'].includes(H.furBase(c.t)) ? o.d : o.k;
+    /* traits intérieurs d'encre : couleur de contraste sur un meuble sombre, sinon ils disparaîtraient
+       (le tanné garde l'encre noire, assez lisible sur son brun) */
+    const K = ['sable', 'contre-hermine', 'contre-hermine-or'].includes(H.furBase(c.t)) ? o.d : o.k;
     /* peau : émail du meuble par défaut, ou nuance de carnation choisie */
     const skin = c.peau && v.cp.has.peau && H.SKIN_MAP[c.peau] ? H.SKIN_MAP[c.peau].fill : o.f;
     const hair = c.cheveux && v.cp.has.cheveux ? fill(c.cheveux) : o.f;
@@ -209,6 +210,20 @@
     /* particularités : émail choisi, sinon celui du meuble (null : calque facultatif non activé) */
     const X = {};
     H.EXTRAS.forEach(x => { if (v.cp.has[x.id]) X[x.id] = c.extras && c.extras[x.id] ? fill(c.extras[x.id]) : null; });
+    /* masque de la silhouette (intérieur composé) : blanc là où le meuble prend son émail, noir ailleurs
+       (encre, détails, langue ou armes d'un autre émail…) */
+    if (o.mode === 'mask') {
+      const W = '#fff', N = '#000';
+      const repM = s => {
+        s = s.replace(/__T__/g, W).replace(/__L__/g, L ? N : W).replace(/__A__/g, A ? N : W)
+          .replace(/__S__/g, c.peau && v.cp.has.peau && H.SKIN_MAP[c.peau] ? N : W).replace(/__C__/g, c.cheveux && v.cp.has.cheveux ? N : W)
+          .replace(/__N__/g, N).replace(/__D__/g, N).replace(/__K__/g, N);
+        Object.keys(X).forEach(id => { s = s.replace(new RegExp(`__X${id}__`, 'g'), X[id] ? N : W); });
+        return s;
+      };
+      const m = v.cp.parts.filter(p => p.layer !== 'details' && p.layer !== 'langue' && !(H.EXTRA_MAP[p.layer] && H.EXTRA_MAP[p.layer].opt)).map(p => repM(p.markup)).join('');
+      return v.cp.wrap ? `<g transform="${v.cp.wrap}">${m}</g>` : m;
+    }
     const rep = s => {
       s = s.replace(/__T__/g, o.f).replace(/__L__/g, L || o.f).replace(/__A__/g, A || o.f).replace(/__S__/g, skin)
         .replace(/__C__/g, hair).replace(/__N__/g, halo).replace(/__D__/g, o.d).replace(/__K__/g, K);
@@ -223,8 +238,12 @@
       else if (H.EXTRA_MAP[p.layer] && H.EXTRA_MAP[p.layer].opt) { if (X[p.layer]) col += rep(p.markup); }
       else col += rep(p.markup);
     }
+    /* intérieur composé (o.inner : champ déjà dessiné dans la grille du meuble, o.mask : id du masque de la silhouette) :
+       posé sur le corps, sous les traits intérieurs */
+    const wrapT = s => (v.cp.wrap ? `<g transform="${v.cp.wrap}">${s}</g>` : s);
+    if (o.inner) return wrapT(o.filter ? `<g filter="url(#${o.filter})">${col}</g>` : col) + `<g mask="url(#${o.mask})">${o.inner}</g>` + wrapT(det);
     const body = (o.filter ? `<g filter="url(#${o.filter})">${col}</g>` : col) + det;
-    return v.cp.wrap ? `<g transform="${v.cp.wrap}">${body}</g>` : body;
+    return wrapT(body);
   };
   /* Filtre de contour : dilate la silhouette et la remplit d'encre, sous le dessin */
   H.outlineFilter = (id, r, ink) =>
